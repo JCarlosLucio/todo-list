@@ -1,0 +1,20 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "A simple todo list app",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JCarlosLucio/todo-list.git"
+  },
+  "author": "Juan Carlos Lucio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JCarlosLucio/todo-list/issues"
+  },
+  "homepage": "https://github.com/JCarlosLucio/todo-list#readme"
+}

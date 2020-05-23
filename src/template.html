@@ -15,38 +15,37 @@
         <div class="container">
 
             <!-- LISTS -->
-            <div class="container-lists card">
+            <div class="container__list">
                 <h1>Lists</h1>
-
-                <div class="add-lists">
-                    <form class="add-lists-form">
-                        <input type="text" placeholder="Title*">
-
-                        <button class="add-list">Add List</button>
-
+                <!-- ADD LIST -->
+                <div class="add__list">
+                    <form class="add__list__form">
+                        <input class="add__list__title" type="text" placeholder="Title*">
+                        <button class="add__list__btn">Add List</button>
                     </form>
                 </div>
 
             </div>
 
             <!-- TODOS -->
-            <div class="container-todos card">
-                <h1 class="list-title">%List Name%</h1>
+            <div class="container__todo">
 
-                <div class="add-todos">
-                    <form class="add-todo-form">
-                        <input class="add-todo-title" type="text" placeholder="Title*">
-                        <textarea class="add-todo-description" cols="30" rows="5" placeholder="Description*"></textarea>
-                        <input class="add-todo-date" type="date">
-                        <select class="add-todo-priority">
-                            <option value="">--Priority--</option>
-                            <option value="low">Low</option>
-                            <option value="medium">Medium</option>
-                            <option value="high">High</option>
-                        </select>
-
-                        <button class="add-todo">Add Todo</button>
-
+                <h1 class="container__todo__title">%List Name%</h1>
+                <!-- ADD TODO -->
+                <div class="add__todo">
+                    <form class="add__todo__form">
+                        <div class="add__todo__inputs">
+                            <input class="add__todo__title" type="text" placeholder="Title*">
+                            <input class="add__todo__date" type="date">
+                            <select class="add__todo__prio">
+                                <option value="">--Priority--</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                        <textarea class="add__todo__desc" cols="25" rows="3" placeholder="Description*"></textarea>
+                        <button class="add__todo__btn">Add Todo</button>
                     </form>
                 </div>
 

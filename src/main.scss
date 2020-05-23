@@ -19,15 +19,10 @@ $bg-gradient: linear-gradient(
 );
 $bg-dark: #042074;
 $bg-light: #ffffff;
-$nav: #161218;
-$nav-dark: #1e1820;
-$primary: #c24551;
-$secondary: #df00f3;
-$accent: #f33427;
 $text: #ffffff;
 $text-dark: #000000;
-$shadow-color: #0000003f;
-$shadow: $shadow-color 0px 0.35em 1.175em, $shadow-color 0px 0.175em 0.5em;
+$shadow-color: #00000013;
+$shadow: $shadow-color 0px 0.3em 1.175em, $shadow-color 0px 0.175em 0.5em;
 $desktop: 60rem;
 
 @mixin desktop {
@@ -49,52 +44,72 @@ $desktop: 60rem;
 	justify-content: center;
 	flex-direction: $direction;
 }
+@mixin card() {
+	@include flexCenter(column);
+	background-color: $bg-light;
+	border-radius: 1.5rem;
+	padding: 1rem 0;
+	margin: 1rem 0;
+	width: 18rem;
+}
 
 body,
 html {
-	height: 100%;
+	min-height: 100%;
 }
 
 body {
 	@include noMarginPadding();
 	background-image: $bg-gradient;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 .content {
 	@include oneHundred();
+	@include flexCenter(column);
+	justify-content: flex-start;
 }
 .container {
-	@include flexCenter(row);
-	justify-content: space-around;
-	padding: 3rem;
-	border: 1px solid black;
-	&-lists {
+	@include flexCenter(column);
+	@include desktop() {
+		@include flexCenter(row);
+		justify-content: space-around;
+		width: 60rem;
+	}
+	&__list {
+		@include card();
 		@include desktop() {
-			width: 20vw;
+			width: 18rem;
 		}
 	}
-	&-todos {
+	&__todo {
+		@include card();
 		@include desktop() {
-			width: 50vw;
+			width: 35rem;
 		}
 	}
 }
-.card {
+.add__todo__form,
+.add__list__form {
 	@include flexCenter(column);
-	padding: 2rem;
-	background-color: $bg-light;
-	border-radius: 2rem;
-	box-shadow: $shadow;
 	input,
 	textarea,
 	select {
 		padding: 0.5rem;
-		margin: 1rem 1rem;
+		margin: 1rem 0.5rem;
 		border: none;
-		border-radius: 0.2rem;
+		border-radius: 0.5rem;
 		box-shadow: $shadow;
 	}
+	textarea {
+		@include desktop() {
+			width: 27rem;
+		}
+	}
 }
-.add-todo-form,
-.add-lists-form {
+.add__todo__inputs {
 	@include flexCenter(column);
+	@include desktop() {
+		@include flexCenter(row);
+	}
 }

@@ -1,0 +1,100 @@
+:root {
+	font-size: 16px;
+	font-family: 'Quicksand', sans-serif;
+}
+$bg-gradient: linear-gradient(
+	to right top,
+	#d16ba5,
+	#c777b9,
+	#ba83ca,
+	#aa8fd8,
+	#9a9ae1,
+	#8aa7ec,
+	#79b3f4,
+	#69bff8,
+	#52cffe,
+	#41dfff,
+	#46eefa,
+	#5ffbf1
+);
+$bg-dark: #042074;
+$bg-light: #ffffff;
+$nav: #161218;
+$nav-dark: #1e1820;
+$primary: #c24551;
+$secondary: #df00f3;
+$accent: #f33427;
+$text: #ffffff;
+$text-dark: #000000;
+$shadow-color: #0000003f;
+$shadow: $shadow-color 0px 0.35em 1.175em, $shadow-color 0px 0.175em 0.5em;
+$desktop: 60rem;
+
+@mixin desktop {
+	@media (min-width: #{$desktop}) {
+		@content;
+	}
+}
+@mixin noMarginPadding {
+	margin: 0;
+	padding: 0;
+}
+@mixin oneHundred() {
+	width: 100%;
+	height: 100%;
+}
+@mixin flexCenter($direction) {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: $direction;
+}
+
+body,
+html {
+	height: 100%;
+}
+
+body {
+	@include noMarginPadding();
+	background-image: $bg-gradient;
+}
+.content {
+	@include oneHundred();
+}
+.container {
+	@include flexCenter(row);
+	justify-content: space-around;
+	padding: 3rem;
+	border: 1px solid black;
+	&-lists {
+		@include desktop() {
+			width: 20vw;
+		}
+	}
+	&-todos {
+		@include desktop() {
+			width: 50vw;
+		}
+	}
+}
+.card {
+	@include flexCenter(column);
+	padding: 2rem;
+	background-color: $bg-light;
+	border-radius: 2rem;
+	box-shadow: $shadow;
+	input,
+	textarea,
+	select {
+		padding: 0.5rem;
+		margin: 1rem 1rem;
+		border: none;
+		border-radius: 0.2rem;
+		box-shadow: $shadow;
+	}
+}
+.add-todo-form,
+.add-lists-form {
+	@include flexCenter(column);
+}

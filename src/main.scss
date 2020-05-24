@@ -80,9 +80,23 @@ button {
 		background-color: $bg-dark;
 	}
 }
-
+input,
+textarea,
+select {
+	padding: 0.5rem;
+	margin: 1rem 0.5rem;
+	border: none;
+	border-radius: 0.5rem;
+	box-shadow: $shadow;
+}
+textarea {
+	@include desktop() {
+		width: 27rem;
+	}
+}
 .item__delete__btn {
 	color: $text;
+	margin-left: auto;
 	background-color: rgba(255, 75, 75, 0.411);
 	&:hover {
 		background-color: rgb(255, 0, 0);
@@ -113,41 +127,16 @@ button {
 		}
 	}
 }
-.add__todo__form,
-.add__list__form {
+.add__todo {
 	@include flexCenter(column);
-	input,
-	textarea,
-	select {
-		padding: 0.5rem;
-		margin: 1rem 0.5rem;
-		border: none;
-		border-radius: 0.5rem;
-		box-shadow: $shadow;
-	}
-	textarea {
+	&__inputs {
+		@include flexCenter(column);
 		@include desktop() {
-			width: 27rem;
+			@include flexCenter(row);
 		}
 	}
 }
-.add__todo__inputs {
-	@include flexCenter(column);
-	@include desktop() {
-		@include flexCenter(row);
-	}
-}
-.item {
-	@include flexCenter(row);
-	justify-content: flex-start;
-	border-radius: 0.5rem;
-	padding: 0.5rem;
-	margin: 0.5rem 0;
-	box-shadow: $shadow;
-	&__delete {
-		margin-left: auto;
-	}
-}
+// todo and list
 .todo,
 .list {
 	margin: 2rem 0;
@@ -158,15 +147,24 @@ button {
 		width: 27rem;
 	}
 }
-
 .list {
 	width: 14rem;
 }
-.item__details {
-	display: none;
-}
-.item__title {
-	padding-left: 1rem;
+
+// items for todos and lists
+.item {
+	@include flexCenter(row);
+	justify-content: flex-start;
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+	margin: 0.5rem 0;
+	box-shadow: $shadow;
+	&__details {
+		display: none;
+	}
+	&__title {
+		padding-left: 1rem;
+	}
 }
 
 // classes for toggling

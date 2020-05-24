@@ -20,10 +20,8 @@
                 <h1>Lists</h1>
                 <!-- ADD LIST -->
                 <div class="add__list">
-                    <form class="add__list__form">
-                        <input class="add__list__title" type="text" placeholder="Title*">
-                        <button class="add__list__btn">Add List</button>
-                    </form>
+                    <input class="add__list__title" type="text" placeholder="Title*">
+                    <button class="add__list__btn">Add List</button>
                 </div>
 
                 <!-- WHERE LISTS ARE ADDED -->
@@ -31,18 +29,18 @@
 
                     <!-- List items to be created -->
                     <!-- first list -->
-                    <div class="item" id="list-0">
+                    <div id="list-0" class="item">
                         <div class="item__title">%list-title%</div>
-                        <div class="item__delete">
-                            <button class="item__delete__btn"><i class="fas fa-trash-alt"></i></button>
-                        </div>
+                        <button class="item__delete__btn">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
                     </div>
                     <!-- second list -->
-                    <div class="item selected" id="list-0">
+                    <div id="list-1" class="item selected">
                         <div class="item__title">%list-title%</div>
-                        <div class="item__delete">
-                            <button class="item__delete__btn"><i class="fas fa-trash-alt"></i></button>
-                        </div>
+                        <button class="item__delete__btn">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
                     </div>
                     <!-- List items to be created -->
 
@@ -56,20 +54,18 @@
                 <h1 class="container__todo__title">%List Name%</h1>
                 <!-- ADD TODO -->
                 <div class="add__todo">
-                    <form class="add__todo__form">
-                        <div class="add__todo__inputs">
-                            <input class="add__todo__title" type="text" placeholder="Title*">
-                            <input class="add__todo__date" type="date">
-                            <select class="add__todo__prio">
-                                <option value="">--Priority--</option>
-                                <option value="low">Low</option>
-                                <option value="medium">Medium</option>
-                                <option value="high">High</option>
-                            </select>
-                        </div>
-                        <textarea class="add__todo__desc" cols="25" rows="3" placeholder="Description*"></textarea>
-                        <button class="add__todo__btn">Add Todo</button>
-                    </form>
+                    <input class="add__todo__title" type="text" placeholder="Title*">
+                    <!-- <div class="add__todo__inputs">
+                        <input class="add__todo__date" type="date">
+                        <select class="add__todo__prio">
+                            <option value="">--Priority--</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <textarea class="add__todo__desc" cols="25" rows="3" placeholder="Description*"></textarea> -->
+                    <button class="add__todo__btn">Add Todo</button>
                 </div>
 
                 <!-- WHERE TODOS ARE ADDED -->
@@ -80,21 +76,18 @@
                     <div class="item high" id="todo-0">
                         <input class="item__checkbox" type="checkbox">
                         <div class="item__title">%todo-title%</div>
-                        <div class="item__delete">
-                            <button class="item__delete__btn"><i class="fas fa-trash-alt"></i></button>
-                        </div>
-                        <div class="item__details">
+                        <button class="item__delete__btn"><i class="fas fa-trash-alt"></i></button>
+                        <!-- <div class="item__details">
                             <div class="item__date">%todo-date%</div>
                             <div class="item__desc">%todo-desc%</div>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- second todo -->
                     <div class="item low" id="todo-1">
                         <input class="item__checkbox" type="checkbox">
                         <div class="item__title">%todo-title%</div>
-                        <div class="item__delete">
-                            <button class="item__delete__btn"><i class="fas fa-trash-alt"></i></button>
-                        </div>
+                        <button class="item__delete__btn"><i class="fas fa-trash-alt"></i></button>
+
                         <div class="item__details">
                             <div class="item__date">%todo-date%</div>
                             <div class="item__desc">%todo-desc%</div>

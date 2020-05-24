@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Todo List</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/12e197e6ab.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -23,6 +24,28 @@
                         <input class="add__list__title" type="text" placeholder="Title*">
                         <button class="add__list__btn">Add List</button>
                     </form>
+                </div>
+
+                <!-- WHERE LISTS ARE ADDED -->
+                <div class="list">
+
+                    <!-- List items to be created -->
+                    <!-- first list -->
+                    <div class="item" id="list-0">
+                        <div class="item__title">%list-title%</div>
+                        <div class="item__delete">
+                            <button class="item__delete_btn"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                    <!-- second list -->
+                    <div class="item" id="list-0">
+                        <div class="item__title">%list-title%</div>
+                        <div class="item__delete">
+                            <button class="item__delete_btn"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+                    <!-- List items to be created -->
+
                 </div>
 
             </div>
@@ -47,6 +70,38 @@
                         <textarea class="add__todo__desc" cols="25" rows="3" placeholder="Description*"></textarea>
                         <button class="add__todo__btn">Add Todo</button>
                     </form>
+                </div>
+
+                <!-- WHERE TODOS ARE ADDED -->
+                <div class="todo">
+
+                    <!-- Todo items to be created -->
+                    <!-- first todo -->
+                    <div class="item high" id="todo-0">
+                        <input class="item__checkbox" type="checkbox">
+                        <div class="item__title">%todo-title%</div>
+                        <div class="item__delete">
+                            <button class="item__delete_btn"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                        <div class="item__details">
+                            <div class="item__date">%todo-date%</div>
+                            <div class="item__desc">%todo-desc%</div>
+                        </div>
+                    </div>
+                    <!-- second todo -->
+                    <div class="item low" id="todo-1">
+                        <input class="item__checkbox" type="checkbox">
+                        <div class="item__title">%todo-title%</div>
+                        <div class="item__delete">
+                            <button class="item__delete_btn"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                        <div class="item__details">
+                            <div class="item__date">%todo-date%</div>
+                            <div class="item__desc">%todo-desc%</div>
+                        </div>
+                    </div>
+                    <!-- Todo items to be created -->
+
                 </div>
 
             </div>

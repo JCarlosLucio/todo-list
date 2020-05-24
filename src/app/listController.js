@@ -7,6 +7,10 @@ const listController = (() => {
 			this.todos = [];
 		}
 	}
+
+	const data = {
+		allLists: []
+	};
 })();
 
 export default listController;

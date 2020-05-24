@@ -4,7 +4,12 @@ import uiController from './app/uiController';
 
 const controller = ((listCtrl, uiCtrl) => {
 	// APP CONTROLLER
-
+	// Initilize Event Listeners
+	const setupEventListeners = () => {
+		const DOM = uiCtrl.getDOMStrings();
+		//  Add event handler for LISTS
+		document.querySelector(DOM.addListBtn).addEventListener('click', ctrlAddListItem);
+	};
 	// Add item to list
 	const ctrlAddListItem = () => {
 		// 1. Get input data from lists field
@@ -15,14 +20,12 @@ const controller = ((listCtrl, uiCtrl) => {
 		// 3. Add new item to the lists ui
 	};
 
-	// Initilize Event Listeners
-	const setupEventListeners = () => {
-		const DOM = uiCtrl.getDOMStrings();
-		//  Add event handler for LISTS
-		document.querySelector(DOM.addListBtn).addEventListener('click', ctrlAddListItem);
+	const init = () => {
+		console.log('Application has started');
+		setupEventListeners();
 	};
 
-	return { setupEventListeners };
+	return { init };
 })(listController, uiController);
 
-controller.setupEventListeners();
+controller.init();

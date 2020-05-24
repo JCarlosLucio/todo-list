@@ -14,8 +14,10 @@ const controller = ((listCtrl, uiCtrl) => {
 	const ctrlAddListItem = () => {
 		// 1. Get input data from lists field
 		const listInput = uiCtrl.getListInput();
-		console.log(listInput);
+
 		// 2. Add new item to data-structure
+		const newListItem = listCtrl.addListItem(listInput);
+		console.log(newListItem);
 
 		// 3. Add new item to the lists ui
 	};

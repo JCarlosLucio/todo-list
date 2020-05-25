@@ -11,7 +11,7 @@ const listController = (() => {
 	const data = {
 		allLists: []
 	};
-
+	// ===== PUBLIC =====
 	const addListItem = (title) => {
 		// 1. Create ID
 		let ID = 0;
@@ -27,8 +27,20 @@ const listController = (() => {
 		// 4. Return new item
 		return newListItem;
 	};
+	const deleteListItem = (id) => {
+		const ids = data.allLists.map((list) => {
+			return list.id;
+		});
+		// find index of id in array of ids
+		const index = ids.indexOf(id);
+		// Remove list from data-structure
+		if (index !== -1) {
+			data.allLists.splice(index, 1);
+		}
+		console.log(data.allLists);
+	};
 
-	return { addListItem };
+	return { addListItem, deleteListItem };
 })();
 
 export default listController;

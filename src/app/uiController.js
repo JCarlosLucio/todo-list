@@ -34,6 +34,12 @@ const uiController = (() => {
 		list.append(listItemDiv);
 	};
 
-	return { getDOMStrings, getListInput, addListItem };
+	const clearListField = () => {
+		const listTitle = document.querySelector(DOMStrings.addListTitle);
+		listTitle.value = '';
+		listTitle.focus();
+	};
+
+	return { getDOMStrings, getListInput, addListItem, clearListField };
 })();
 export default uiController;

@@ -20,12 +20,12 @@ const uiController = (() => {
 		const titleDiv = document.createElement('div');
 		const trashIcon = document.createElement('i');
 		const deleteBtn = document.createElement('button');
-		listItemDiv.classList.add('item');
+		listItemDiv.classList.add('list__item');
 		listItemDiv.setAttribute('id', `list-${obj.id}`);
-		titleDiv.classList.add('item__title');
+		titleDiv.classList.add('list__item__title');
 		titleDiv.innerText = obj.title;
 		trashIcon.classList.add('fas', 'fa-trash-alt');
-		deleteBtn.classList.add('item__delete__btn');
+		deleteBtn.classList.add('list__item__delete__btn');
 		deleteBtn.append(trashIcon);
 		listItemDiv.append(titleDiv, deleteBtn);
 

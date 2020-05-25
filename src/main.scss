@@ -98,6 +98,10 @@ textarea {
 	color: $text;
 	margin-left: auto;
 	background-color: rgba(255, 75, 75, 0.411);
+	padding: 0;
+	i {
+		padding: 0.3rem 0.4rem;
+	}
 	&:hover {
 		background-color: rgb(255, 0, 0);
 	}

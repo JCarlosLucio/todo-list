@@ -147,18 +147,13 @@ textarea {
 }
 
 // items for todos and lists
-.item {
+.list__item,
+.todo__item {
 	@include flexCenter(row);
 	justify-content: flex-start;
 	border-radius: 0.5rem;
 	margin: 0.5rem 0;
 	box-shadow: $shadow;
-	&:hover {
-		background-image: $bg-hover;
-	}
-	&__details {
-		display: none;
-	}
 	&__title {
 		padding: 0.5rem 0 0.5rem 1rem;
 		width: 100%;
@@ -177,6 +172,16 @@ textarea {
 	}
 }
 
+.list__item {
+	&:hover {
+		background-image: $bg-hover;
+	}
+}
+.todo__item {
+	&__details {
+		display: none;
+	}
+}
 // classes for toggling
 .high {
 	background-image: $bg-red;

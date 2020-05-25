@@ -2,7 +2,8 @@ const uiController = (() => {
 	//  CODE FOR THE UI
 	const DOMStrings = {
 		addListBtn: '.add__list__btn',
-		addListTitle: '.add__list__title'
+		addListTitle: '.add__list__title',
+		list: '.list'
 	};
 	// ===== PUBLIC =====
 	const getListInput = () => {
@@ -29,7 +30,7 @@ const uiController = (() => {
 		listItemDiv.append(titleDiv, deleteBtn);
 
 		// Append list item to lists
-		const list = document.querySelector('.list');
+		const list = document.querySelector(DOMStrings.list);
 		list.append(listItemDiv);
 	};
 

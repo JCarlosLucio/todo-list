@@ -9,6 +9,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		const DOM = uiCtrl.getDOMStrings();
 		//  Add event handler for LISTS
 		document.querySelector(DOM.addListBtn).addEventListener('click', ctrlAddListItem);
+		document.querySelector(DOM.list).addEventListener('click', ctrlDeleteListItem);
 	};
 	// Add item to list
 	const ctrlAddListItem = () => {
@@ -25,6 +26,15 @@ const controller = ((listCtrl, uiCtrl) => {
 			// 4. Clear list field
 			uiCtrl.clearListField();
 		}
+	};
+
+	const ctrlDeleteListItem = (event) => {
+		const listItemID = event.target.parentNode.parentNode.id;
+		const ID = listItemID[listItemID.length - 1];
+		console.log(ID);
+
+		// 1. Delete item from data-structure
+		// 2. Delete item from UI
 	};
 
 	const init = () => {

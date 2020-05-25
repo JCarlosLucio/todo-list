@@ -30,11 +30,14 @@ const controller = ((listCtrl, uiCtrl) => {
 
 	const ctrlDeleteListItem = (event) => {
 		const listItemID = event.target.parentNode.parentNode.id;
-		const ID = listItemID[listItemID.length - 1];
-		console.log(ID);
-
-		// 1. Delete item from data-structure
-		// 2. Delete item from UI
+		if (listItemID) {
+			const ID = parseInt(listItemID[listItemID.length - 1]);
+			console.log(ID);
+			// 1. Delete item from data-structure
+			listCtrl.deleteListItem(ID);
+			// 2. Delete item from UI
+			uiCtrl.deleteListItem(listItemID);
+		}
 	};
 
 	const init = () => {

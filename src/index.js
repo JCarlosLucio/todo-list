@@ -20,6 +20,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		console.log(newListItem);
 
 		// 3. Add new item to the lists ui
+		uiCtrl.addListItem(newListItem);
 	};
 
 	const init = () => {

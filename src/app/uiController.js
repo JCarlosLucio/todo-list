@@ -33,6 +33,10 @@ const uiController = (() => {
 		const list = document.querySelector(DOMStrings.list);
 		list.append(listItemDiv);
 	};
+	const deleteListItem = (selectorID) => {
+		const el = document.getElementById(selectorID);
+		el.parentNode.removeChild(el);
+	};
 
 	const clearListField = () => {
 		const listTitle = document.querySelector(DOMStrings.addListTitle);
@@ -40,6 +44,6 @@ const uiController = (() => {
 		listTitle.focus();
 	};
 
-	return { getDOMStrings, getListInput, addListItem, clearListField };
+	return { getDOMStrings, getListInput, addListItem, deleteListItem, clearListField };
 })();
 export default uiController;

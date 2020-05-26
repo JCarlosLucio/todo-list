@@ -64,7 +64,8 @@ const uiController = (() => {
 		});
 
 		// 3. Add 'selected' class to event.target
-		document.getElementById(`list-${obj.id}`).classList.add('selected');
+		const targetListItem = document.getElementById(`list-${obj.id}`);
+		targetListItem.classList.add('selected');
 
 		// 5. Update/Add todo-list-ID in '.todo'
 		const todoCont = document.querySelector(DOMStrings.todo);

@@ -40,7 +40,15 @@ const listController = (() => {
 		console.log(data.allLists);
 	};
 
-	return { addListItem, deleteListItem };
+	const getList = (id) => {
+		const ids = data.allLists.map((list) => {
+			return list.id;
+		});
+		const index = ids.indexOf(id);
+		return data.allLists[index];
+	};
+
+	return { addListItem, deleteListItem, getList };
 })();
 
 export default listController;

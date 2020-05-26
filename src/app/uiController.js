@@ -5,6 +5,7 @@ const uiController = (() => {
 		addListBtn: '.add__list__btn',
 		addListTitle: '.add__list__title',
 		list: '.list',
+		containerTodoTitle: '.container__todo__title',
 		// For element creation
 		listItemClass: 'list__item',
 		listItemTitleClass: 'list__item__title',
@@ -51,6 +52,9 @@ const uiController = (() => {
 
 	const setupTodos = (obj) => {
 		// 1. Set title for '.container__todo__title' with title from targetList.title
+		const containerTodoTitle = document.querySelector(DOMStrings.containerTodoTitle);
+		containerTodoTitle.innerText = obj.title;
+
 		// 2. Remove 'selected' class from all '.list_item'
 		// 3. Add 'selected' class to event.target
 	};

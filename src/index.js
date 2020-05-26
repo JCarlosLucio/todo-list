@@ -56,12 +56,12 @@ const controller = ((listCtrl, uiCtrl) => {
 			// UI CONTROLLER TASKS
 			//
 			// 3. Set title for '.container__todo__title' with title from targetList.title
+			uiCtrl.setupTodos(targetList);
+			// 4. Remove 'selected' class from all '.list_item'
+			// 5. Add 'selected' class to event.target
 
-			// 5. Remove 'selected' class from all '.list_item'
-			// 6. Add 'selected' class to event.target
-
-			// 7. Remove todo-list-ID from todo container --- Might just be able to document.querySelector('todo').id = ID;
-			// 8. Add todo-list-ID to '.todo'
+			// 6. Remove todo-list-ID from todo container --- Might just be able to document.querySelector('todo').id = ID;
+			// 7. Add todo-list-ID to '.todo'
 		}
 	};
 

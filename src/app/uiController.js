@@ -7,6 +7,7 @@ const uiController = (() => {
 		list: '.list',
 		containerTodoTitle: '.container__todo__title',
 		listItem: '.list__item',
+		todo: '.todo',
 		// For element creation
 		listItemClass: 'list__item',
 		listItemTitleClass: 'list__item__title',
@@ -64,6 +65,10 @@ const uiController = (() => {
 
 		// 3. Add 'selected' class to event.target
 		document.getElementById(`list-${obj.id}`).classList.add('selected');
+
+		// 5. Update/Add todo-list-ID in '.todo'
+		const todoCont = document.querySelector(DOMStrings.todo);
+		todoCont.id = `todo-list-${obj.id}`;
 	};
 
 	return { getDOMStrings, getListInput, addListItem, deleteListItem, clearListField, setupTodos };

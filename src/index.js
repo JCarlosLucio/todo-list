@@ -44,12 +44,14 @@ const controller = ((listCtrl, uiCtrl) => {
 		const listItemID = event.target.parentNode.id;
 		if (listItemID) {
 			const ID = parseInt(listItemID[listItemID.length - 1]);
-			console.log('In render', event.target.parentNode.id);
+			console.log('Setting up', event.target.parentNode.id);
 			//  LIST CONTROLLER TASKS
 			// 1. Set this.selected  to false to all lists  ===  setSelected(id) => {}
 			// 2. Set this.selected to true to event.target using ID
 
 			// 3. Get targetList with id --- getList(ID) -> return data.allLists[index]
+			const targetList = listCtrl.getList(ID);
+			console.log('target List', targetList);
 
 			// UI CONTROLLER TASKS
 			//

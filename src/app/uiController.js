@@ -6,6 +6,7 @@ const uiController = (() => {
 		addListTitle: '.add__list__title',
 		list: '.list',
 		containerTodoTitle: '.container__todo__title',
+		listItem: '.list__item',
 		// For element creation
 		listItemClass: 'list__item',
 		listItemTitleClass: 'list__item__title',
@@ -56,7 +57,13 @@ const uiController = (() => {
 		containerTodoTitle.innerText = obj.title;
 
 		// 2. Remove 'selected' class from all '.list_item'
+		const listItems = document.querySelectorAll(DOMStrings.listItem);
+		listItems.forEach((item) => {
+			item.classList.remove('selected');
+		});
+
 		// 3. Add 'selected' class to event.target
+		document.getElementById(`list-${obj.id}`).classList.add('selected');
 	};
 
 	return { getDOMStrings, getListInput, addListItem, deleteListItem, clearListField, setupTodos };

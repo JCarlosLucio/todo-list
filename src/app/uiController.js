@@ -49,6 +49,12 @@ const uiController = (() => {
 		listTitle.focus();
 	};
 
-	return { getDOMStrings, getListInput, addListItem, deleteListItem, clearListField };
+	const setupTodos = (obj) => {
+		// 1. Set title for '.container__todo__title' with title from targetList.title
+		// 2. Remove 'selected' class from all '.list_item'
+		// 3. Add 'selected' class to event.target
+	};
+
+	return { getDOMStrings, getListInput, addListItem, deleteListItem, clearListField, setupTodos };
 })();
 export default uiController;

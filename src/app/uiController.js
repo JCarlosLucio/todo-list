@@ -1,9 +1,14 @@
 const uiController = (() => {
 	//  CODE FOR THE UI
 	const DOMStrings = {
+		// For querySelector
 		addListBtn: '.add__list__btn',
 		addListTitle: '.add__list__title',
-		list: '.list'
+		list: '.list',
+		// For element creation
+		listItemClass: 'list__item',
+		listItemTitleClass: 'list__item__title',
+		listItemDeleteBtnClass: 'list__item__delete__btn'
 	};
 	// ===== PUBLIC =====
 	const getListInput = () => {
@@ -20,12 +25,12 @@ const uiController = (() => {
 		const titleDiv = document.createElement('div');
 		const trashIcon = document.createElement('i');
 		const deleteBtn = document.createElement('button');
-		listItemDiv.classList.add('list__item');
+		listItemDiv.classList.add(DOMStrings.listItemClass);
 		listItemDiv.setAttribute('id', `list-${obj.id}`);
-		titleDiv.classList.add('list__item__title');
+		titleDiv.classList.add(DOMStrings.listItemTitleClass);
 		titleDiv.innerText = obj.title;
 		trashIcon.classList.add('fas', 'fa-trash-alt');
-		deleteBtn.classList.add('list__item__delete__btn');
+		deleteBtn.classList.add(DOMStrings.listItemDeleteBtnClass);
 		deleteBtn.append(trashIcon);
 		listItemDiv.append(titleDiv, deleteBtn);
 

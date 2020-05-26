@@ -10,6 +10,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		//  Add event handler for LISTS
 		document.querySelector(DOM.addListBtn).addEventListener('click', ctrlAddListItem);
 		document.querySelector(DOM.list).addEventListener('click', ctrlDeleteListItem);
+		document.querySelector(DOM.list).addEventListener('click', ctrlSetupTodos);
 	};
 	// Add item to list
 	const ctrlAddListItem = () => {
@@ -37,6 +38,28 @@ const controller = ((listCtrl, uiCtrl) => {
 			listCtrl.deleteListItem(ID);
 			// 2. Delete item from UI
 			uiCtrl.deleteListItem(listItemID);
+		}
+	};
+	const ctrlSetupTodos = (event) => {
+		const listItemID = event.target.parentNode.id;
+		if (listItemID) {
+			const ID = parseInt(listItemID[listItemID.length - 1]);
+			console.log('In render', event.target.parentNode.id);
+			//  LIST CONTROLLER TASKS
+			// 1. Set this.selected  to false to all lists  ===  setSelected(id) => {}
+			// 2. Set this.selected to true to event.target using ID
+
+			// 3. Get targetList with id --- getList(ID) -> return data.allLists[index]
+
+			// UI CONTROLLER TASKS
+			//
+			// 3. Set title for '.container__todo__title' with title from targetList.title
+
+			// 5. Remove 'selected' class from all '.list_item'
+			// 6. Add 'selected' class to event.target
+
+			// 7. Remove todo-list-ID from todo container --- Might just be able to document.querySelector('todo').id = ID;
+			// 8. Add todo-list-ID to '.todo'
 		}
 	};
 

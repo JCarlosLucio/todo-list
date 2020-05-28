@@ -42,7 +42,7 @@ const controller = ((listCtrl, uiCtrl) => {
 			// 1. Delete item from data-structure
 			listCtrl.deleteListItem(ID);
 			// 2. Delete item from UI
-			uiCtrl.deleteListItem(listItemID);
+			uiCtrl.deleteItem(listItemID);
 		}
 	};
 	const ctrlSetupTodos = (event) => {
@@ -83,12 +83,14 @@ const controller = ((listCtrl, uiCtrl) => {
 		// Find todo id and list id
 		const todoItemID = event.target.parentNode.parentNode.id;
 		const listItemID = event.target.parentNode.parentNode.parentNode.id;
-		console.log('trying to delete ', todoItemID, 'from ', listItemID);
 		if (listItemID && todoItemID) {
-			const todoID = parseInt(todoItemID[listItemID.length - 1]);
+			console.log('trying to delete ', todoItemID, 'from ', listItemID);
+			const todoID = parseInt(todoItemID[todoItemID.length - 1]);
 			const listID = parseInt(listItemID[listItemID.length - 1]);
 			// 1. Delete item from data-structure
+			listCtrl.deleteTodoItem(listID, todoID);
 			// 2. Delete item from UI
+			uiCtrl.deleteItem(todoItemID);
 		}
 	};
 

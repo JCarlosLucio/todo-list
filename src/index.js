@@ -63,11 +63,14 @@ const controller = ((listCtrl, uiCtrl) => {
 	};
 
 	const ctrlAddTodoItem = () => {
-		console.log('HI I WILL BE ABLE TO ADD TODO ITEMS');
 		// 1. Get input values
-		// 2. Add todo item to data-strucuture
-		// 3. Add todo item to the todos ui
-		// 4. Clear fields
+		const todoInput = uiCtrl.getTodoInput();
+		if (todoInput) {
+			console.log('todo input: ', todoInput);
+			// 2. Add todo item to data-strucuture
+			// 3. Add todo item to the todos ui
+			// 4. Clear fields
+		}
 	};
 
 	const init = () => {

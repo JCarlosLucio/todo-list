@@ -75,7 +75,7 @@ const uiController = (() => {
 		todo.append(todoItemDiv);
 	};
 
-	const deleteListItem = (selectorID) => {
+	const deleteItem = (selectorID) => {
 		const el = document.getElementById(selectorID);
 		el.parentNode.removeChild(el);
 	};
@@ -122,7 +122,7 @@ const uiController = (() => {
 		getDOMStrings,
 		getListInput,
 		addListItem,
-		deleteListItem,
+		deleteItem,
 		clearListField,
 		setupTodos,
 		getTodoInput,

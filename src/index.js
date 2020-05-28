@@ -11,6 +11,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		document.querySelector(DOM.addListBtn).addEventListener('click', ctrlAddListItem);
 		document.querySelector(DOM.list).addEventListener('click', ctrlDeleteListItem);
 		document.querySelector(DOM.list).addEventListener('click', ctrlSetupTodos);
+		document.querySelector(DOM.addTodoBtn).addEventListener('click', ctrlAddTodoItem);
 	};
 	// Add item to list
 	const ctrlAddListItem = () => {
@@ -59,6 +60,14 @@ const controller = ((listCtrl, uiCtrl) => {
 			// 6. Add todo-list-ID to '.todo'
 			uiCtrl.setupTodos(targetList);
 		}
+	};
+
+	const ctrlAddTodoItem = () => {
+		console.log('HI I WILL BE ABLE TO ADD TODO ITEMS');
+		// 1. Get input values
+		// 2. Add todo item to data-strucuture
+		// 3. Add todo item to the todos ui
+		// 4. Clear fields
 	};
 
 	const init = () => {

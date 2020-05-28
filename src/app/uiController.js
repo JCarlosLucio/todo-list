@@ -9,6 +9,7 @@ const uiController = (() => {
 		listItem: '.list__item',
 		todo: '.todo',
 		addTodoBtn: '.add__todo__btn',
+		addTodoTitle: '.add__todo__title',
 		// For element creation
 		listItemClass: 'list__item',
 		listItemTitleClass: 'list__item__title',
@@ -18,6 +19,10 @@ const uiController = (() => {
 	const getListInput = () => {
 		const listTitle = document.querySelector(DOMStrings.addListTitle).value;
 		return listTitle;
+	};
+	const getTodoInput = () => {
+		const todoTitle = document.querySelector(DOMStrings.addTodoTitle).value;
+		return todoTitle;
 	};
 	const getDOMStrings = () => {
 		return DOMStrings;
@@ -73,6 +78,6 @@ const uiController = (() => {
 		todoCont.id = `todo-list-${obj.id}`;
 	};
 
-	return { getDOMStrings, getListInput, addListItem, deleteListItem, clearListField, setupTodos };
+	return { getDOMStrings, getListInput, addListItem, deleteListItem, clearListField, setupTodos, getTodoInput };
 })();
 export default uiController;

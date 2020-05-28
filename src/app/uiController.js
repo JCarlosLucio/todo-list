@@ -113,6 +113,9 @@ const uiController = (() => {
 		// 6. Erase todos from '.todo' - ui
 		todoCont.textContent = '';
 		// 7. Render todos - ui
+		for (const todo of obj.todos) {
+			addTodoItem(todo);
+		}
 	};
 
 	return {

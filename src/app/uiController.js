@@ -22,7 +22,8 @@ const uiController = (() => {
 	};
 	const getTodoInput = () => {
 		const todoTitle = document.querySelector(DOMStrings.addTodoTitle).value;
-		return todoTitle;
+		const todoListID = document.querySelector(DOMStrings.todo).id;
+		return { todoListID, todoTitle };
 	};
 	const getDOMStrings = () => {
 		return DOMStrings;

@@ -65,8 +65,17 @@ const listController = (() => {
 	};
 	const deleteTodoItem = (listID, todoID) => {
 		// get list from where the todo is going to be deleted
+		const targetList = getList(listID);
 		// find index of todo to be deleted
-		// remove todo from data structure
+		const ids = targetList.todos.map((todo) => {
+			return todo.id;
+		});
+		const index = ids.indexOf(todoID);
+		if (index !== -1) {
+			// remove todo from data structure
+			targetList.todos.splice(index, 1);
+		}
+		console.log('List after deleting todo: ', targetList);
 	};
 
 	const getList = (id) => {

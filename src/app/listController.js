@@ -63,6 +63,11 @@ const listController = (() => {
 		}
 		console.log(data.allLists);
 	};
+	const deleteTodoItem = (listID, todoID) => {
+		// get list from where the todo is going to be deleted
+		// find index of todo to be deleted
+		// remove todo from data structure
+	};
 
 	const getList = (id) => {
 		const ids = data.allLists.map((list) => {
@@ -72,7 +77,7 @@ const listController = (() => {
 		return data.allLists[index];
 	};
 
-	return { addListItem, deleteListItem, getList, addTodoItem };
+	return { addListItem, deleteListItem, getList, addTodoItem, deleteTodoItem };
 })();
 
 export default listController;

@@ -29,6 +29,7 @@ const listController = (() => {
 	};
 	const addTodoItem = (todoObj) => {
 		// 1. Get todoListID
+		const todoListID = parseInt(todoObj.todoListID[todoObj.todoListID.length - 1]);
 		// 2. Get List obj where todos will be added
 		// 3. Create Todo obj
 		// 4. Push Todo into List

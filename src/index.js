@@ -70,7 +70,7 @@ const controller = ((listCtrl, uiCtrl) => {
 			// 2. Add todo item to data-strucuture
 			const newTodoItem = listCtrl.addTodoItem(todoInput);
 			// 3. Add todo item to the todos ui
-
+			uiCtrl.addTodoItem(newTodoItem);
 			// 4. Clear fields
 		}
 	};

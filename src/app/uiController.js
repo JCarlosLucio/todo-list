@@ -48,6 +48,12 @@ const uiController = (() => {
 		const list = document.querySelector(DOMStrings.list);
 		list.append(listItemDiv);
 	};
+	const addTodoItem = function(obj) {
+		// 1. Create todo item
+		// 2. Add attributes
+		// 3. Append todo item to todos
+	};
+
 	const deleteListItem = (selectorID) => {
 		const el = document.getElementById(selectorID);
 		el.parentNode.removeChild(el);
@@ -79,6 +85,15 @@ const uiController = (() => {
 		todoCont.id = `todo-list-${obj.id}`;
 	};
 
-	return { getDOMStrings, getListInput, addListItem, deleteListItem, clearListField, setupTodos, getTodoInput };
+	return {
+		getDOMStrings,
+		getListInput,
+		addListItem,
+		deleteListItem,
+		clearListField,
+		setupTodos,
+		getTodoInput,
+		addTodoItem
+	};
 })();
 export default uiController;

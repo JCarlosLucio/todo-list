@@ -38,7 +38,6 @@ const listController = (() => {
 		const todoListID = parseInt(obj.todoListID[obj.todoListID.length - 1]);
 		// 2. Get List obj where todos will be added
 		const targetList = getList(todoListID);
-		console.log('List where todo will be added: ', targetList);
 		// 3. Create todoID
 		let todoID = 0;
 		if (targetList.todos.length > 0) {
@@ -47,6 +46,8 @@ const listController = (() => {
 		// 4. Create Todo obj
 		const newTodoItem = new Todo(todoID, obj.todoTitle);
 		// 5. Push Todo into List
+		targetList.todos.push(newTodoItem);
+		console.log('List where todo was added: ', targetList);
 	};
 	const deleteListItem = (id) => {
 		const ids = data.allLists.map((list) => {

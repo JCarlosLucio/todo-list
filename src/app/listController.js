@@ -7,6 +7,12 @@ const listController = (() => {
 			this.todos = [];
 		}
 	}
+	class Todo {
+		constructor(id, title) {
+			this.id = id;
+			this.title = title;
+		}
+	}
 
 	const data = {
 		allLists: []

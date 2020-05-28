@@ -27,6 +27,9 @@ const controller = ((listCtrl, uiCtrl) => {
 
 			// 4. Clear list field
 			uiCtrl.clearListField();
+
+			// 5. Setup list after adding it
+			uiCtrl.setupTodos(newListItem);
 		}
 	};
 

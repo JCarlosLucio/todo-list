@@ -10,6 +10,9 @@ const uiController = (() => {
 		todo: '.todo',
 		addTodoBtn: '.add__todo__btn',
 		addTodoTitle: '.add__todo__title',
+		addTodoDate: '.add__todo__date',
+		addTodoPrio: '.add__todo__prio',
+		addTodoDesc: '.add__todo__desc',
 		// For element creation
 		listItemClass: 'list__item',
 		listItemTitleClass: 'list__item__title',
@@ -26,9 +29,12 @@ const uiController = (() => {
 		return listTitle;
 	};
 	const getTodoInput = () => {
-		const todoTitle = document.querySelector(DOMStrings.addTodoTitle).value;
 		const todoListID = document.querySelector(DOMStrings.todo).id;
-		return { todoListID, todoTitle };
+		const todoTitle = document.querySelector(DOMStrings.addTodoTitle).value;
+		const todoDate = document.querySelector(DOMStrings.addTodoDate).value;
+		const todoPrio = document.querySelector(DOMStrings.addTodoPrio).value;
+		const todoDesc = document.querySelector(DOMStrings.addTodoDesc).value;
+		return { todoListID, todoTitle, todoDate, todoPrio, todoDesc };
 	};
 	const getDOMStrings = () => {
 		return DOMStrings;

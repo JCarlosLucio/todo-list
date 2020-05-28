@@ -72,6 +72,7 @@ const controller = ((listCtrl, uiCtrl) => {
 			// 3. Add todo item to the todos ui
 			uiCtrl.addTodoItem(newTodoItem);
 			// 4. Clear fields
+			uiCtrl.clearTodoFields();
 		}
 	};
 

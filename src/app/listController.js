@@ -33,9 +33,9 @@ const listController = (() => {
 		// 4. Return new item
 		return newListItem;
 	};
-	const addTodoItem = (todoObj) => {
+	const addTodoItem = (obj) => {
 		// 1. Get todoListID
-		const todoListID = parseInt(todoObj.todoListID[todoObj.todoListID.length - 1]);
+		const todoListID = parseInt(obj.todoListID[obj.todoListID.length - 1]);
 		// 2. Get List obj where todos will be added
 		const targetList = getList(todoListID);
 		console.log('List where todo will be added: ', targetList);
@@ -45,7 +45,7 @@ const listController = (() => {
 			todoID = targetList.todos[targetList.todos.length - 1].id + 1;
 		}
 		// 4. Create Todo obj
-		const newTodoItem = new Todo(todoID, todoObj.title);
+		const newTodoItem = new Todo(todoID, obj.todoTitle);
 		// 5. Push Todo into List
 	};
 	const deleteListItem = (id) => {

@@ -78,6 +78,11 @@ const controller = ((listCtrl, uiCtrl) => {
 			uiCtrl.clearTodoFields();
 		}
 	};
+	const ctrlDelteTodoItem = (event) => {
+		// Find todo id and list id
+		// 1. Delete item from data-structure
+		// 2. Delete item from UI
+	};
 
 	const init = () => {
 		console.log('Application has started');

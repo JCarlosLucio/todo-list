@@ -30,6 +30,9 @@ $text: #ffffff;
 $text-dark: #000000;
 $shadow-color: #00000013;
 $shadow: $shadow-color 0px 0.3em 1.175em, $shadow-color 0px 0.175em 0.5em;
+$white-filter-soft: #ffffff27;
+$white-filter-hard: #ffffffbd;
+
 $desktop: 60rem;
 
 @mixin desktop {
@@ -149,8 +152,6 @@ textarea {
 // items for todos and lists
 .list__item,
 .todo__item {
-	@include flexCenter(row);
-	justify-content: flex-start;
 	border-radius: 0.5rem;
 	margin: 0.5rem 0;
 	box-shadow: $shadow;
@@ -173,13 +174,38 @@ textarea {
 }
 
 .list__item {
+	@include flexCenter(row);
+	justify-content: flex-start;
 	&:hover {
 		background-image: $bg-hover;
 	}
 }
 .todo__item {
-	&__details {
+	@include flexCenter(column);
+	align-items: flex-start;
+	&__short {
+		width: 100%;
+		@include flexCenter(row);
+		justify-content: flex-start;
+		&:hover {
+			background-color: $white-filter-soft;
+		}
+	}
+	&__extra {
+		@include flexCenter(column);
 		display: none;
+		border-radius: 0 0 0.5rem 0.5rem;
+		width: 100%;
+		background-color: $white-filter-hard;
+	}
+	&__date {
+		width: 23rem;
+		margin-top: 1rem;
+		text-align: end;
+	}
+	&__desc {
+		width: 23rem;
+		margin: 1rem;
 	}
 }
 // classes for toggling

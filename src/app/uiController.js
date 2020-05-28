@@ -8,6 +8,7 @@ const uiController = (() => {
 		containerTodoTitle: '.container__todo__title',
 		listItem: '.list__item',
 		todo: '.todo',
+		addTodoBtn: '.add__todo__btn',
 		// For element creation
 		listItemClass: 'list__item',
 		listItemTitleClass: 'list__item__title',

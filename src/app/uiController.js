@@ -109,6 +109,10 @@ const uiController = (() => {
 		// 5. Update/Add todo-list-ID in '.todo'
 		const todoCont = document.querySelector(DOMStrings.todo);
 		todoCont.id = `todo-list-${obj.id}`;
+
+		// 6. Erase todos from '.todo' - ui
+		todoCont.textContent = '';
+		// 7. Render todos - ui
 	};
 
 	return {

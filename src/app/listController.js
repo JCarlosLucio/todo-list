@@ -31,6 +31,8 @@ const listController = (() => {
 		// 1. Get todoListID
 		const todoListID = parseInt(todoObj.todoListID[todoObj.todoListID.length - 1]);
 		// 2. Get List obj where todos will be added
+		const targetList = getList(todoListID);
+		console.log('List where todo will be added: ', targetList);
 		// 3. Create Todo obj
 		// 4. Push Todo into List
 	};

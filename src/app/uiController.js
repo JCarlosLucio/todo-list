@@ -15,6 +15,7 @@ const uiController = (() => {
 		listItemTitleClass: 'list__item__title',
 		listItemDeleteBtnClass: 'list__item__delete__btn',
 		todoItemClass: 'todo__item',
+		todoItemShortClass: 'todo__item__short',
 		todoItemCheckbox: 'todo__item__checkbox',
 		todoItemTitleClass: 'todo__item__title',
 		todoItemDeleteBtnClass: 'todo__item__delete__btn'
@@ -55,6 +56,7 @@ const uiController = (() => {
 	const addTodoItem = function(obj) {
 		// 1. Create todo item
 		const todoItemDiv = document.createElement('div');
+		const shortDiv = document.createElement('div');
 		const checkbox = document.createElement('input');
 		const titleDiv = document.createElement('div');
 		const deleteBtn = document.createElement('button');
@@ -62,6 +64,7 @@ const uiController = (() => {
 		// 2. Add attributes
 		todoItemDiv.classList.add(DOMStrings.todoItemClass);
 		todoItemDiv.setAttribute('id', `todo-${obj.id}`);
+		shortDiv.classList.add(DOMStrings.todoItemShortClass);
 		checkbox.type = 'checkbox';
 		checkbox.classList.add(DOMStrings.todoItemCheckbox);
 		titleDiv.classList.add(DOMStrings.todoItemTitleClass);
@@ -69,7 +72,8 @@ const uiController = (() => {
 		trashIcon.classList.add('fas', 'fa-trash-alt');
 		deleteBtn.classList.add(DOMStrings.todoItemDeleteBtnClass);
 		deleteBtn.append(trashIcon);
-		todoItemDiv.append(checkbox, titleDiv, deleteBtn);
+		shortDiv.append(checkbox, titleDiv, deleteBtn);
+		todoItemDiv.append(shortDiv);
 		// 3. Append todo item to todos
 		const todo = document.querySelector(DOMStrings.todo);
 		todo.append(todoItemDiv);

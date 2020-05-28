@@ -48,6 +48,8 @@ const listController = (() => {
 		// 5. Push Todo into List
 		targetList.todos.push(newTodoItem);
 		console.log('List where todo was added: ', targetList);
+		// 6 Return new Todo item
+		return newTodoItem;
 	};
 	const deleteListItem = (id) => {
 		const ids = data.allLists.map((list) => {

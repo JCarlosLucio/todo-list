@@ -81,8 +81,8 @@ const controller = ((listCtrl, uiCtrl) => {
 	};
 	const ctrlDeleteTodoItem = (event) => {
 		// Find todo id and list id
-		const todoItemID = event.target.parentNode.parentNode.id;
-		const listItemID = event.target.parentNode.parentNode.parentNode.id;
+		const todoItemID = event.target.parentNode.parentNode.parentNode.id;
+		const listItemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
 		if (listItemID && todoItemID) {
 			console.log('trying to delete ', todoItemID, 'from ', listItemID);
 			const todoID = parseInt(todoItemID[todoItemID.length - 1]);

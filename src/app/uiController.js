@@ -13,7 +13,11 @@ const uiController = (() => {
 		// For element creation
 		listItemClass: 'list__item',
 		listItemTitleClass: 'list__item__title',
-		listItemDeleteBtnClass: 'list__item__delete__btn'
+		listItemDeleteBtnClass: 'list__item__delete__btn',
+		todoItemClass: 'todo__item',
+		todoItemCheckbox: 'todo__item__checkbox',
+		todoItemTitleClass: 'todo__item__title',
+		todoItemDeleteBtnClass: 'todo__item__delete__btn'
 	};
 	// ===== PUBLIC =====
 	const getListInput = () => {
@@ -50,8 +54,25 @@ const uiController = (() => {
 	};
 	const addTodoItem = function(obj) {
 		// 1. Create todo item
+		const todoItemDiv = document.createElement('div');
+		const checkbox = document.createElement('input');
+		const titleDiv = document.createElement('div');
+		const deleteBtn = document.createElement('button');
+		const trashIcon = document.createElement('i');
 		// 2. Add attributes
+		todoItemDiv.classList.add(DOMStrings.todoItemClass);
+		todoItemDiv.setAttribute('id', `todo-${obj.id}`);
+		checkbox.type = 'checkbox';
+		checkbox.classList.add(DOMStrings.todoItemCheckbox);
+		titleDiv.classList.add(DOMStrings.todoItemTitleClass);
+		titleDiv.innerText = obj.title;
+		trashIcon.classList.add('fas', 'fa-trash-alt');
+		deleteBtn.classList.add(DOMStrings.todoItemDeleteBtnClass);
+		deleteBtn.append(trashIcon);
+		todoItemDiv.append(checkbox, titleDiv, deleteBtn);
 		// 3. Append todo item to todos
+		const todo = document.querySelector(DOMStrings.todo);
+		todo.append(todoItemDiv);
 	};
 
 	const deleteListItem = (selectorID) => {

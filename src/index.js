@@ -68,8 +68,9 @@ const controller = ((listCtrl, uiCtrl) => {
 		if (todoInput) {
 			console.log('todo input: ', todoInput);
 			// 2. Add todo item to data-strucuture
-			listCtrl.addTodoItem(todoInput);
+			const newTodoItem = listCtrl.addTodoItem(todoInput);
 			// 3. Add todo item to the todos ui
+
 			// 4. Clear fields
 		}
 	};

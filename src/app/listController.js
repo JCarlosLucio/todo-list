@@ -39,8 +39,14 @@ const listController = (() => {
 		// 2. Get List obj where todos will be added
 		const targetList = getList(todoListID);
 		console.log('List where todo will be added: ', targetList);
-		// 3. Create Todo obj
-		// 4. Push Todo into List
+		// 3. Create todoID
+		let todoID = 0;
+		if (targetList.todos.length > 0) {
+			todoID = targetList.todos[targetList.todos.length - 1].id + 1;
+		}
+		// 4. Create Todo obj
+		const newTodoItem = new Todo(todoID, todoObj.title);
+		// 5. Push Todo into List
 	};
 	const deleteListItem = (id) => {
 		const ids = data.allLists.map((list) => {

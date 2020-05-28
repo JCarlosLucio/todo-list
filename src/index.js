@@ -12,6 +12,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		document.querySelector(DOM.list).addEventListener('click', ctrlDeleteListItem);
 		document.querySelector(DOM.list).addEventListener('click', ctrlSetupTodos);
 		document.querySelector(DOM.addTodoBtn).addEventListener('click', ctrlAddTodoItem);
+		document.querySelector(DOM.todo).addEventListener('click', ctrlDelteTodoItem);
 	};
 	// Add item to list
 	const ctrlAddListItem = () => {
@@ -80,8 +81,15 @@ const controller = ((listCtrl, uiCtrl) => {
 	};
 	const ctrlDelteTodoItem = (event) => {
 		// Find todo id and list id
-		// 1. Delete item from data-structure
-		// 2. Delete item from UI
+		const todoItemID = event.target.parentNode.parentNode.id;
+		const listItemID = event.target.parentNode.parentNode.parentNode.id;
+		console.log('trying to delete ', todoItemID, 'from ', listItemID);
+		if (listItemID && todoItemID) {
+			const todoID = parseInt(todoItemID[listItemID.length - 1]);
+			const listID = parseInt(listItemID[listItemID.length - 1]);
+			// 1. Delete item from data-structure
+			// 2. Delete item from UI
+		}
 	};
 
 	const init = () => {

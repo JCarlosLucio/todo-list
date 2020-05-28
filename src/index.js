@@ -12,7 +12,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		document.querySelector(DOM.list).addEventListener('click', ctrlDeleteListItem);
 		document.querySelector(DOM.list).addEventListener('click', ctrlSetupTodos);
 		document.querySelector(DOM.addTodoBtn).addEventListener('click', ctrlAddTodoItem);
-		document.querySelector(DOM.todo).addEventListener('click', ctrlDelteTodoItem);
+		document.querySelector(DOM.todo).addEventListener('click', ctrlDeleteTodoItem);
 	};
 	// Add item to list
 	const ctrlAddListItem = () => {
@@ -79,7 +79,7 @@ const controller = ((listCtrl, uiCtrl) => {
 			uiCtrl.clearTodoFields();
 		}
 	};
-	const ctrlDelteTodoItem = (event) => {
+	const ctrlDeleteTodoItem = (event) => {
 		// Find todo id and list id
 		const todoItemID = event.target.parentNode.parentNode.id;
 		const listItemID = event.target.parentNode.parentNode.parentNode.id;

@@ -27,6 +27,12 @@ const listController = (() => {
 		// 4. Return new item
 		return newListItem;
 	};
+	const addTodoItem = (todoObj) => {
+		// 1. Get todoListID
+		// 2. Get List obj where todos will be added
+		// 3. Create Todo obj
+		// 4. Push Todo into List
+	};
 	const deleteListItem = (id) => {
 		const ids = data.allLists.map((list) => {
 			return list.id;
@@ -48,7 +54,7 @@ const listController = (() => {
 		return data.allLists[index];
 	};
 
-	return { addListItem, deleteListItem, getList };
+	return { addListItem, deleteListItem, getList, addTodoItem };
 })();
 
 export default listController;

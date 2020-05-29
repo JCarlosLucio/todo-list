@@ -29,12 +29,12 @@ const uiController = (() => {
 		return listTitle;
 	};
 	const getTodoInput = () => {
-		const todoListID = document.querySelector(DOMStrings.todo).id;
-		const todoTitle = document.querySelector(DOMStrings.addTodoTitle).value;
-		const todoDate = document.querySelector(DOMStrings.addTodoDate).value;
-		const todoPrio = document.querySelector(DOMStrings.addTodoPrio).value;
-		const todoDesc = document.querySelector(DOMStrings.addTodoDesc).value;
-		return { todoListID, todoTitle, todoDate, todoPrio, todoDesc };
+		const listID = document.querySelector(DOMStrings.todo).id;
+		const title = document.querySelector(DOMStrings.addTodoTitle).value;
+		const date = document.querySelector(DOMStrings.addTodoDate).value;
+		const prio = document.querySelector(DOMStrings.addTodoPrio).value;
+		const desc = document.querySelector(DOMStrings.addTodoDesc).value;
+		return { listID, title, date, prio, desc };
 	};
 	const getDOMStrings = () => {
 		return DOMStrings;

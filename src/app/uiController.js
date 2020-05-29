@@ -24,7 +24,8 @@ const uiController = (() => {
 		todoItemDeleteBtnClass: 'todo__item__delete__btn',
 		todoItemExtraClass: 'todo__item__extra',
 		todoItemDateClass: 'todo__item__date',
-		todoItemDescClass: 'todo__item__desc'
+		todoItemDescClass: 'todo__item__desc',
+		hideClass: 'hide'
 	};
 	// ===== PUBLIC =====
 	const getListInput = () => {
@@ -86,7 +87,7 @@ const uiController = (() => {
 		deleteBtn.classList.add(DOMStrings.todoItemDeleteBtnClass);
 		deleteBtn.append(trashIcon);
 		shortDiv.append(checkbox, titleDiv, deleteBtn);
-		extraDiv.classList.add(DOMStrings.todoItemExtraClass);
+		extraDiv.classList.add(DOMStrings.todoItemExtraClass, DOMStrings.hideClass);
 		date.classList.add(DOMStrings.todoItemDateClass);
 		date.innerText = obj.date;
 		desc.classList.add(DOMStrings.todoItemDescClass);
@@ -147,6 +148,10 @@ const uiController = (() => {
 		}
 	};
 
+	const toggleHide = (el) => {
+		el.classList.toggle(DOMStrings.hideClass);
+	};
+
 	return {
 		getDOMStrings,
 		getListInput,
@@ -156,7 +161,8 @@ const uiController = (() => {
 		setupTodos,
 		getTodoInput,
 		addTodoItem,
-		clearTodoFields
+		clearTodoFields,
+		toggleHide
 	};
 })();
 export default uiController;

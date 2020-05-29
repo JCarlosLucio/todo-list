@@ -14,6 +14,7 @@ const listController = (() => {
 			this.date = date;
 			this.priority = priority;
 			this.description = description;
+			this.done = false;
 		}
 	}
 
@@ -80,6 +81,12 @@ const listController = (() => {
 		}
 		console.log('List after deleting todo: ', targetList);
 	};
+	const toggleDone = (listID, todoID, isDone) => {
+		// 1. get list
+		// 2. find todo index
+		// 3. toggle .done in todo
+		// 4. return updated todo
+	};
 
 	const getList = (id) => {
 		const ids = data.allLists.map((list) => {
@@ -89,7 +96,7 @@ const listController = (() => {
 		return data.allLists[index];
 	};
 
-	return { addListItem, deleteListItem, getList, addTodoItem, deleteTodoItem };
+	return { addListItem, deleteListItem, getList, addTodoItem, deleteTodoItem, toggleDone };
 })();
 
 export default listController;

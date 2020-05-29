@@ -109,9 +109,15 @@ const uiController = (() => {
 		listTitle.focus();
 	};
 	const clearTodoFields = () => {
-		const todoTitle = document.querySelector(DOMStrings.addTodoTitle);
-		todoTitle.value = '';
-		todoTitle.focus();
+		const title = document.querySelector(DOMStrings.addTodoTitle);
+		const date = document.querySelector(DOMStrings.addTodoDate);
+		const prio = document.querySelector(DOMStrings.addTodoPrio);
+		const desc = document.querySelector(DOMStrings.addTodoDesc);
+		title.value = '';
+		date.value = '';
+		prio.value = '';
+		desc.value = '';
+		title.focus();
 	};
 
 	const setupTodos = (obj) => {

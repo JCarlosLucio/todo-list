@@ -32,6 +32,7 @@ $shadow-color: #00000013;
 $shadow: $shadow-color 0px 0.3em 1.175em, $shadow-color 0px 0.175em 0.5em;
 $white-filter-soft: #ffffff27;
 $white-filter-hard: #ffffffbd;
+$bg-done: linear-gradient(to right, #a3a3a3, #b9b9b9, #d0d0d0, #e7e7e7, #ffffff);
 
 $desktop: 60rem;
 
@@ -226,4 +227,9 @@ textarea {
 }
 .hide {
 	display: none;
+}
+.done {
+	text-decoration: line-through;
+	background-image: $bg-done;
+	color: $bg-dark;
 }

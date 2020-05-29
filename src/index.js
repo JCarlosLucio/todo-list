@@ -14,6 +14,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		document.querySelector(DOM.addTodoBtn).addEventListener('click', ctrlAddTodoItem);
 		document.querySelector(DOM.todo).addEventListener('click', ctrlDeleteTodoItem);
 		document.querySelector(DOM.todo).addEventListener('click', ctrlToggleHide);
+		document.querySelector(DOM.todo).addEventListener('click', ctrlToggleDone);
 	};
 	// Add item to list
 	const ctrlAddListItem = () => {
@@ -93,6 +94,12 @@ const controller = ((listCtrl, uiCtrl) => {
 			// 2. Delete item from UI
 			uiCtrl.deleteItem(todoItemID);
 		}
+	};
+	const ctrlToggleDone = (event) => {
+		const isChecked = event.target.checked;
+		const todoItemID = event.target.parentNode.parentNode.id;
+		const listItemID = event.target.parentNode.parentNode.parentNode.id;
+		console.log('DONE: ', isChecked, todoItemID, listItemID);
 	};
 	const ctrlToggleHide = (event) => {
 		const extra = event.target.parentNode.nextSibling;

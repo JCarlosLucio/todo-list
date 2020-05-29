@@ -99,7 +99,17 @@ const controller = ((listCtrl, uiCtrl) => {
 		const isChecked = event.target.checked;
 		const todoItemID = event.target.parentNode.parentNode.id;
 		const listItemID = event.target.parentNode.parentNode.parentNode.id;
-		console.log('DONE: ', isChecked, todoItemID, listItemID);
+		if (isChecked === true || isChecked === false) {
+			const todoID = parseInt(todoItemID[todoItemID.length - 1]);
+			const listID = parseInt(listItemID[listItemID.length - 1]);
+			console.log('DONE: ', isChecked, todoItemID, listItemID);
+			// 1. Update data-structure
+			listCtrl.toggleDone(listID, todoID, isChecked);
+			// 2. Update item in UI
+			// Might need to make a separate updateTodo()
+			const updatedList = listCtrl.getList(listID);
+			uiCtrl.setupTodos(updatedList);
+		}
 	};
 	const ctrlToggleHide = (event) => {
 		const extra = event.target.parentNode.nextSibling;

@@ -83,9 +83,17 @@ const listController = (() => {
 	};
 	const toggleDone = (listID, todoID, isDone) => {
 		// 1. get list
+		const targetList = getList(listID);
+
 		// 2. find todo index
+		const ids = targetList.todos.map((todo) => {
+			return todo.id;
+		});
+		const index = ids.indexOf(todoID);
 		// 3. toggle .done in todo
+		targetList.todos[index].done = isDone;
 		// 4. return updated todo
+		console.log('List after toggling done: ', targetList);
 	};
 
 	const getList = (id) => {

@@ -69,7 +69,7 @@ const controller = ((listCtrl, uiCtrl) => {
 	const ctrlAddTodoItem = () => {
 		// 1. Get input values
 		const todoInput = uiCtrl.getTodoInput();
-		if (todoInput.todoListID && todoInput.todoTitle) {
+		if (todoInput.listID && todoInput.title) {
 			console.log('todo input: ', todoInput);
 			// 2. Add todo item to data-strucuture
 			const newTodoItem = listCtrl.addTodoItem(todoInput);

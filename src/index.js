@@ -96,7 +96,7 @@ const controller = ((listCtrl, uiCtrl) => {
 	};
 	const ctrlToggleHide = (event) => {
 		const extra = event.target.parentNode.nextSibling;
-		if (extra) {
+		if (event.target.className === 'todo__item__title') {
 			uiCtrl.toggleHide(extra);
 		}
 	};

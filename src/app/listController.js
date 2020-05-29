@@ -8,9 +8,12 @@ const listController = (() => {
 		}
 	}
 	class Todo {
-		constructor(id, title) {
+		constructor(id, title, date, priority, description) {
 			this.id = id;
 			this.title = title;
+			this.date = date;
+			this.priority = priority;
+			this.description = description;
 		}
 	}
 
@@ -35,7 +38,7 @@ const listController = (() => {
 	};
 	const addTodoItem = (obj) => {
 		// 1. Get todoListID
-		const todoListID = parseInt(obj.todoListID[obj.todoListID.length - 1]);
+		const todoListID = parseInt(obj.listID[obj.listID.length - 1]);
 		// 2. Get List obj where todos will be added
 		const targetList = getList(todoListID);
 		// 3. Create todoID
@@ -44,7 +47,7 @@ const listController = (() => {
 			todoID = targetList.todos[targetList.todos.length - 1].id + 1;
 		}
 		// 4. Create Todo obj
-		const newTodoItem = new Todo(todoID, obj.todoTitle);
+		const newTodoItem = new Todo(todoID, obj.title, obj.date, obj.prio, obj.desc);
 		// 5. Push Todo into List
 		targetList.todos.push(newTodoItem);
 		console.log('List where todo was added: ', targetList);

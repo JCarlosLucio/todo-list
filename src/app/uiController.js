@@ -25,7 +25,8 @@ const uiController = (() => {
 		todoItemExtraClass: 'todo__item__extra',
 		todoItemDateClass: 'todo__item__date',
 		todoItemDescClass: 'todo__item__desc',
-		hideClass: 'hide'
+		hideClass: 'hide',
+		doneClass: 'done'
 	};
 	// ===== PUBLIC =====
 	const getListInput = () => {
@@ -77,10 +78,11 @@ const uiController = (() => {
 		// 2. Add attributes
 		todoItemDiv.classList.add(DOMStrings.todoItemClass);
 		todoItemDiv.setAttribute('id', `todo-${obj.id}`);
-		todoItemDiv.classList.add(obj.priority);
+		todoItemDiv.classList.add(obj.done ? DOMStrings.doneClass : obj.priority);
 		shortDiv.classList.add(DOMStrings.todoItemShortClass);
 		checkbox.type = 'checkbox';
 		checkbox.classList.add(DOMStrings.todoItemCheckbox);
+		checkbox.checked = obj.done;
 		titleDiv.classList.add(DOMStrings.todoItemTitleClass);
 		titleDiv.innerText = obj.title;
 		trashIcon.classList.add('fas', 'fa-trash-alt');

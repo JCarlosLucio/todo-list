@@ -201,13 +201,19 @@ textarea {
 		background-color: $white-filter-hard;
 	}
 	&__date {
-		width: 23rem;
+		width: 12rem;
 		margin-top: 1rem;
 		text-align: end;
+		@include desktop() {
+			width: 23rem;
+		}
 	}
 	&__desc {
-		width: 23rem;
+		width: 12rem;
 		margin: 1rem;
+		@include desktop() {
+			width: 23rem;
+		}
 	}
 }
 // classes for toggling

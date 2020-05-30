@@ -136,16 +136,8 @@ textarea {
 	left: 0;
 	width: 100%;
 	min-height: 100%;
-	visibility: hidden;
-	// transform: scale(0);
 	@include flexCenter(column);
 	background: $black-filter-soft;
-	// transition: all 0.4s ease;
-}
-.show_edit {
-	visibility: visible;
-	// transform: scale(1);
-	// transition-duration: $show-speed;
 }
 .edit__todo {
 	@include card();
@@ -230,6 +222,7 @@ textarea {
 	}
 	&__extra {
 		@include flexCenter(column);
+		visibility: visible;
 		border-radius: 0 0 0.5rem 0.5rem;
 		width: 100%;
 		background-color: $white-filter-hard;

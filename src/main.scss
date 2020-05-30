@@ -32,8 +32,10 @@ $shadow-color: #00000013;
 $shadow: $shadow-color 0px 0.3em 1.175em, $shadow-color 0px 0.175em 0.5em;
 $white-filter-soft: #ffffff27;
 $white-filter-hard: #ffffffbd;
+$black-filter-soft: #000000a1;
 $bg-done: linear-gradient(to right, #a3a3a3, #b9b9b9, #d0d0d0, #e7e7e7, #ffffff);
 
+// $show-speed: 3s;
 $desktop: 60rem;
 
 @mixin desktop {
@@ -127,7 +129,39 @@ textarea {
 		}
 	}
 }
-.add__todo {
+// edit todos
+.container__edit {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 100%;
+	visibility: hidden;
+	// transform: scale(0);
+	@include flexCenter(column);
+	background: $black-filter-soft;
+	// transition: all 0.4s ease;
+}
+.show_edit {
+	visibility: visible;
+	// transform: scale(1);
+	// transition-duration: $show-speed;
+}
+.edit__todo {
+	@include card();
+	@include desktop() {
+		width: 35rem;
+	}
+	h1 {
+		font-size: 1.5rem;
+		@include desktop() {
+			font-size: 2rem;
+		}
+	}
+}
+
+.add__todo,
+.edit__todo {
 	@include flexCenter(column);
 	&__inputs {
 		@include flexCenter(column);

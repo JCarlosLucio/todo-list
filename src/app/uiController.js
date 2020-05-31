@@ -14,6 +14,12 @@ const uiController = (() => {
 		addTodoPrio: '.add__todo__prio',
 		addTodoDesc: '.add__todo__desc',
 		containerEdit: '.container__edit',
+		editTodoTitle: '.edit__todo__title',
+		editTodoBtn: '.edit__todo__btn',
+		editTodoDate: '.edit__todo__date',
+		editTodoPrio: '.edit__todo__prio',
+		editTodoDesc: '.edit__todo__desc',
+		containerEditTitle: '.container__edit__title',
 		// For element creation
 		listItemClass: 'list__item',
 		listItemTitleClass: 'list__item__title',
@@ -156,7 +162,18 @@ const uiController = (() => {
 			addTodoItem(todo);
 		}
 	};
-
+	const setEditInputs = (obj) => {
+		const containerEditTitle = document.querySelector(DOMStrings.containerEditTitle);
+		const title = document.querySelector(DOMStrings.editTodoTitle);
+		const date = document.querySelector(DOMStrings.editTodoDate);
+		const prio = document.querySelector(DOMStrings.editTodoPrio);
+		const desc = document.querySelector(DOMStrings.editTodoDesc);
+		containerEditTitle.innerText = `Edit ${obj.title}`;
+		title.value = obj.title;
+		date.value = obj.date;
+		prio.value = obj.priority;
+		desc.value = obj.description;
+	};
 	const toggleHide = (el) => {
 		el.classList.toggle(DOMStrings.hideClass);
 	};
@@ -168,6 +185,7 @@ const uiController = (() => {
 		deleteItem,
 		clearListField,
 		setupTodos,
+		setEditInputs,
 		getTodoInput,
 		addTodoItem,
 		clearTodoFields,

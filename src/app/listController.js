@@ -95,10 +95,7 @@ const listController = (() => {
 		// 4. return updated todo
 		console.log('List after toggling done: ', targetList);
 	};
-	const editTodoItem = (obj) => {
-		const [ listItemID, todoItemID ] = obj.ids.split('--');
-		const todoID = parseInt(todoItemID[todoItemID.length - 1]);
-		const listID = parseInt(listItemID[listItemID.length - 1]);
+	const editTodoItem = (listID, todoID, obj) => {
 		const todoToEdit = getTodo(listID, todoID);
 		todoToEdit.title = obj.title;
 		todoToEdit.date = obj.date;

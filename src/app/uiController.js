@@ -13,6 +13,7 @@ const uiController = (() => {
 		addTodoDate: '.add__todo__date',
 		addTodoPrio: '.add__todo__prio',
 		addTodoDesc: '.add__todo__desc',
+		containerEdit: '.container__edit',
 		// For element creation
 		listItemClass: 'list__item',
 		listItemTitleClass: 'list__item__title',

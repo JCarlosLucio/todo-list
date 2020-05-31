@@ -107,14 +107,17 @@ const controller = ((listCtrl, uiCtrl) => {
 				console.log('trying to EDIT ', todoItemID, 'from ', listItemID);
 				const todoID = parseInt(todoItemID[todoItemID.length - 1]);
 				const listID = parseInt(listItemID[listItemID.length - 1]);
-				// 1. Show container__edit
+				// 1. Get todo from data-structure
+				const oldTodo = listCtrl.getTodo(listID, todoID);
+				console.log('todo to Edit: ', oldTodo);
+				// 2. Set todo values from in container__edit
+				// 3. Show container__edit
 				const containerEdit = document.querySelector(DOM.containerEdit);
-				console.log(containerEdit);
 				uiCtrl.toggleHide(containerEdit);
-				// 1. Edit item from data-structure
-				// listCtrl.deleteTodoItem(listID, todoID);
-				// 2. Edit item from UI
-				// uiCtrl.deleteItem(todoItemID);
+				// 4. Get edited input from container__edit
+				// 5. Edit item from data-structure
+				// 6. Update item from UI
+				// 7. Clear input fields and hide container__edit
 			}
 		}
 	};

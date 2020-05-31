@@ -35,7 +35,8 @@ const uiController = (() => {
 		todoItemDateClass: 'todo__item__date',
 		todoItemDescClass: 'todo__item__desc',
 		hideClass: 'hide',
-		doneClass: 'done'
+		doneClass: 'done',
+		editTodoBtnClass: 'edit__todo__btn'
 	};
 	// ===== PUBLIC =====
 	const getListInput = () => {

@@ -111,6 +111,7 @@ const controller = ((listCtrl, uiCtrl) => {
 				const oldTodo = listCtrl.getTodo(listID, todoID);
 				console.log('todo to Edit: ', oldTodo);
 				// 2. Set todo values from in container__edit
+				uiCtrl.setEditInputs(oldTodo);
 				// 3. Show container__edit
 				const containerEdit = document.querySelector(DOM.containerEdit);
 				uiCtrl.toggleHide(containerEdit);

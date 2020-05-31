@@ -49,6 +49,13 @@ const uiController = (() => {
 		const desc = document.querySelector(DOMStrings.addTodoDesc).value;
 		return { listID, title, date, prio, desc };
 	};
+	const getEditInput = () => {
+		const title = document.querySelector(DOMStrings.editTodoTitle).value;
+		const date = document.querySelector(DOMStrings.editTodoDate).value;
+		const prio = document.querySelector(DOMStrings.editTodoPrio).value;
+		const desc = document.querySelector(DOMStrings.editTodoDesc).value;
+		return { title, date, prio, desc };
+	};
 	const getDOMStrings = () => {
 		return DOMStrings;
 	};
@@ -189,6 +196,7 @@ const uiController = (() => {
 		getTodoInput,
 		addTodoItem,
 		clearTodoFields,
+		getEditInput,
 		toggleHide
 	};
 })();

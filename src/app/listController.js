@@ -103,8 +103,20 @@ const listController = (() => {
 		const index = ids.indexOf(id);
 		return data.allLists[index];
 	};
+	const getTodo = (listID, todoID) => {
+		// 1. get list
+		const targetList = getList(listID);
 
-	return { addListItem, deleteListItem, getList, addTodoItem, deleteTodoItem, toggleDone };
+		// 2. find todo index
+		const ids = targetList.todos.map((todo) => {
+			return todo.id;
+		});
+		const index = ids.indexOf(todoID);
+		// 3. return todo
+		return targetList.todos[index];
+	};
+
+	return { addListItem, deleteListItem, getList, getTodo, addTodoItem, deleteTodoItem, toggleDone };
 })();
 
 export default listController;

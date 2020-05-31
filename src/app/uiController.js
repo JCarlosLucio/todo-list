@@ -14,6 +14,7 @@ const uiController = (() => {
 		addTodoPrio: '.add__todo__prio',
 		addTodoDesc: '.add__todo__desc',
 		containerEdit: '.container__edit',
+		editTodo: '.edit__todo',
 		editTodoTitle: '.edit__todo__title',
 		editTodoBtn: '.edit__todo__btn',
 		editTodoDate: '.edit__todo__date',
@@ -169,12 +170,14 @@ const uiController = (() => {
 			addTodoItem(todo);
 		}
 	};
-	const setEditInputs = (obj) => {
+	const setEditInputs = (listID, todoID, obj) => {
+		const editTodo = document.querySelector(DOMStrings.editTodo);
 		const containerEditTitle = document.querySelector(DOMStrings.containerEditTitle);
 		const title = document.querySelector(DOMStrings.editTodoTitle);
 		const date = document.querySelector(DOMStrings.editTodoDate);
 		const prio = document.querySelector(DOMStrings.editTodoPrio);
 		const desc = document.querySelector(DOMStrings.editTodoDesc);
+		editTodo.setAttribute('id', `list-${listID}--todo-${todoID}`);
 		containerEditTitle.innerText = `Edit ${obj.title}`;
 		title.value = obj.title;
 		date.value = obj.date;

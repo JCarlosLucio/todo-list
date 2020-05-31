@@ -126,6 +126,7 @@ const controller = ((listCtrl, uiCtrl) => {
 			const editInput = uiCtrl.getEditInput();
 			console.log(editInput);
 			// 5. Edit item from data-structure
+			listCtrl.editTodoItem(editInput);
 			// 6. Update item from UI
 			// 7. Clear input fields and hide container__edit
 		}

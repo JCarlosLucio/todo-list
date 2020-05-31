@@ -5,8 +5,8 @@ import uiController from './app/uiController';
 const controller = ((listCtrl, uiCtrl) => {
 	// APP CONTROLLER
 	// Initilize Event Listeners
+	const DOM = uiCtrl.getDOMStrings();
 	const setupEventListeners = () => {
-		const DOM = uiCtrl.getDOMStrings();
 		//  Add event handler for LISTS
 		document.querySelector(DOM.addListBtn).addEventListener('click', ctrlAddListItem);
 		document.querySelector(DOM.list).addEventListener('click', ctrlDeleteListItem);
@@ -87,7 +87,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		const deleteBtn = event.target.parentNode;
 		const todoItemID = event.target.parentNode.parentNode.parentNode.id;
 		const listItemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
-		if (listItemID && todoItemID && deleteBtn.className === 'todo__item__delete__btn') {
+		if (listItemID && todoItemID && deleteBtn.className === DOM.todoItemDeleteBtnClass) {
 			console.log('trying to delete ', todoItemID, 'from ', listItemID);
 			const todoID = parseInt(todoItemID[todoItemID.length - 1]);
 			const listID = parseInt(listItemID[listItemID.length - 1]);
@@ -99,16 +99,16 @@ const controller = ((listCtrl, uiCtrl) => {
 	};
 	const ctrlEditTodoItem = (event) => {
 		// Find todo id and list id
-		if (event.target.parentNode.parentNode.parentNode.parentNode) {
-			const editBtn = event.target.parentNode;
+		const editBtn = event.target.parentNode;
+		if (editBtn.className === DOM.todoItemEditBtnClass) {
 			const todoItemID = event.target.parentNode.parentNode.parentNode.id;
 			const listItemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
-			if (listItemID && todoItemID && editBtn.className === 'todo__item__edit__btn') {
+			if (listItemID && todoItemID) {
 				console.log('trying to EDIT ', todoItemID, 'from ', listItemID);
 				const todoID = parseInt(todoItemID[todoItemID.length - 1]);
 				const listID = parseInt(listItemID[listItemID.length - 1]);
 				// 1. Show container__edit
-				const containerEdit = document.querySelector('.container__edit');
+				const containerEdit = document.querySelector(DOM.containerEdit);
 				console.log(containerEdit);
 				uiCtrl.toggleHide(containerEdit);
 				// 1. Edit item from data-structure
@@ -136,7 +136,7 @@ const controller = ((listCtrl, uiCtrl) => {
 	};
 	const ctrlToggleHide = (event) => {
 		const extra = event.target.parentNode.nextSibling;
-		if (event.target.className === 'todo__item__title') {
+		if (event.target.className === DOM.todoItemTitleClass) {
 			uiCtrl.toggleHide(extra);
 		}
 	};

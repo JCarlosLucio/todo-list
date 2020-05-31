@@ -23,6 +23,7 @@ const uiController = (() => {
 		todoItemTitleClass: 'todo__item__title',
 		todoItemDeleteBtnClass: 'todo__item__delete__btn',
 		todoItemExtraClass: 'todo__item__extra',
+		todoItemEditBtnClass: 'todo__item__edit__btn',
 		todoItemDateClass: 'todo__item__date',
 		todoItemDescClass: 'todo__item__desc',
 		hideClass: 'hide',
@@ -73,6 +74,8 @@ const uiController = (() => {
 		const deleteBtn = document.createElement('button');
 		const trashIcon = document.createElement('i');
 		const extraDiv = document.createElement('div');
+		const editBtn = document.createElement('button');
+		const editIcon = document.createElement('i');
 		const date = document.createElement('div');
 		const desc = document.createElement('div');
 		// 2. Add attributes
@@ -90,11 +93,14 @@ const uiController = (() => {
 		deleteBtn.append(trashIcon);
 		shortDiv.append(checkbox, titleDiv, deleteBtn);
 		extraDiv.classList.add(DOMStrings.todoItemExtraClass, DOMStrings.hideClass);
+		editBtn.classList.add(DOMStrings.todoItemEditBtnClass);
+		editIcon.classList.add('fas', 'fa-edit');
 		date.classList.add(DOMStrings.todoItemDateClass);
 		date.innerText = obj.date;
 		desc.classList.add(DOMStrings.todoItemDescClass);
 		desc.innerText = obj.description;
-		extraDiv.append(date, desc);
+		editBtn.append(editIcon);
+		extraDiv.append(editBtn, date, desc);
 		todoItemDiv.append(shortDiv, extraDiv);
 		// 3. Append todo item to todos
 		const todo = document.querySelector(DOMStrings.todo);

@@ -16,6 +16,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		document.querySelector(DOM.todo).addEventListener('click', ctrlToggleHide);
 		document.querySelector(DOM.todo).addEventListener('click', ctrlToggleDone);
 		document.querySelector(DOM.todo).addEventListener('click', ctrlSetupEdit);
+		document.querySelector(DOM.editTodo).addEventListener('click', ctrlEditTodoItem);
 	};
 	// Add item to list
 	const ctrlAddListItem = () => {
@@ -119,12 +120,15 @@ const controller = ((listCtrl, uiCtrl) => {
 		}
 	};
 	const ctrlEditTodoItem = (event) => {
-		// 4. Get edited input from container__edit
-		const editInput = uiCtrl.getEditInput();
-		console.log(editInput);
-		// 5. Edit item from data-structure
-		// 6. Update item from UI
-		// 7. Clear input fields and hide container__edit
+		const editTodoBtn = event.target;
+		if (editTodoBtn.className === DOM.editTodoBtnClass) {
+			// 4. Get edited input from container__edit
+			const editInput = uiCtrl.getEditInput();
+			console.log(editInput);
+			// 5. Edit item from data-structure
+			// 6. Update item from UI
+			// 7. Clear input fields and hide container__edit
+		}
 	};
 	const ctrlToggleDone = (event) => {
 		const isChecked = event.target.checked;

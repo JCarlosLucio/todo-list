@@ -95,6 +95,16 @@ const listController = (() => {
 		// 4. return updated todo
 		console.log('List after toggling done: ', targetList);
 	};
+	const editTodoItem = (obj) => {
+		const [ listItemID, todoItemID ] = obj.ids.split('--');
+		const todoID = parseInt(todoItemID[todoItemID.length - 1]);
+		const listID = parseInt(listItemID[listItemID.length - 1]);
+		const todoToEdit = getTodo(listID, todoID);
+		todoToEdit.title = obj.title;
+		todoToEdit.date = obj.date;
+		todoToEdit.priority = obj.prio;
+		todoToEdit.description = obj.desc;
+	};
 
 	const getList = (id) => {
 		const ids = data.allLists.map((list) => {
@@ -116,7 +126,7 @@ const listController = (() => {
 		return targetList.todos[index];
 	};
 
-	return { addListItem, deleteListItem, getList, getTodo, addTodoItem, deleteTodoItem, toggleDone };
+	return { addListItem, deleteListItem, getList, getTodo, addTodoItem, deleteTodoItem, editTodoItem, toggleDone };
 })();
 
 export default listController;

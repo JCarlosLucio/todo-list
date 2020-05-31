@@ -52,12 +52,11 @@ const uiController = (() => {
 		return { listID, title, date, prio, desc };
 	};
 	const getEditInput = () => {
-		const ids = document.querySelector(DOMStrings.editTodo).id;
 		const title = document.querySelector(DOMStrings.editTodoTitle).value;
 		const date = document.querySelector(DOMStrings.editTodoDate).value;
 		const prio = document.querySelector(DOMStrings.editTodoPrio).value;
 		const desc = document.querySelector(DOMStrings.editTodoDesc).value;
-		return { ids, title, date, prio, desc };
+		return { title, date, prio, desc };
 	};
 	const getDOMStrings = () => {
 		return DOMStrings;

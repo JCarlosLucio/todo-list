@@ -15,7 +15,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		document.querySelector(DOM.todo).addEventListener('click', ctrlDeleteTodoItem);
 		document.querySelector(DOM.todo).addEventListener('click', ctrlToggleHide);
 		document.querySelector(DOM.todo).addEventListener('click', ctrlToggleDone);
-		document.querySelector(DOM.todo).addEventListener('click', ctrlEditTodoItem);
+		document.querySelector(DOM.todo).addEventListener('click', ctrlSetupEdit);
 	};
 	// Add item to list
 	const ctrlAddListItem = () => {
@@ -97,7 +97,7 @@ const controller = ((listCtrl, uiCtrl) => {
 			uiCtrl.deleteItem(todoItemID);
 		}
 	};
-	const ctrlEditTodoItem = (event) => {
+	const ctrlSetupEdit = (event) => {
 		// Find todo id and list id
 		const editBtn = event.target.parentNode;
 		if (editBtn.className === DOM.todoItemEditBtnClass) {
@@ -115,12 +115,16 @@ const controller = ((listCtrl, uiCtrl) => {
 				// 3. Show container__edit
 				const containerEdit = document.querySelector(DOM.containerEdit);
 				uiCtrl.toggleHide(containerEdit);
-				// 4. Get edited input from container__edit
-				// 5. Edit item from data-structure
-				// 6. Update item from UI
-				// 7. Clear input fields and hide container__edit
 			}
 		}
+	};
+	const ctrlEditTodoItem = (event) => {
+		// 4. Get edited input from container__edit
+		const editInput = uiCtrl.getEditInput();
+		console.log(editInput);
+		// 5. Edit item from data-structure
+		// 6. Update item from UI
+		// 7. Clear input fields and hide container__edit
 	};
 	const ctrlToggleDone = (event) => {
 		const isChecked = event.target.checked;

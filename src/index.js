@@ -136,7 +136,9 @@ const controller = ((listCtrl, uiCtrl) => {
 				// 4. Update item from UI
 				const updatedList = listCtrl.getList(listID);
 				uiCtrl.setupTodos(updatedList);
-				// 5. Clear input fields and hide container__edit
+				// 5. Hide container__edit
+				const containerEdit = document.querySelector(DOM.containerEdit);
+				uiCtrl.toggleHide(containerEdit);
 			}
 		}
 	};

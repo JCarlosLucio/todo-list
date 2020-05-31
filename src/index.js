@@ -122,13 +122,22 @@ const controller = ((listCtrl, uiCtrl) => {
 	const ctrlEditTodoItem = (event) => {
 		const editTodoBtn = event.target;
 		if (editTodoBtn.className === DOM.editTodoBtnClass) {
-			// 4. Get edited input from container__edit
-			const editInput = uiCtrl.getEditInput();
-			console.log(editInput);
-			// 5. Edit item from data-structure
-			listCtrl.editTodoItem(editInput);
-			// 6. Update item from UI
-			// 7. Clear input fields and hide container__edit
+			// 1. Get list id and todo id from 'edit__todo'
+			const listTodoItemID = event.target.parentNode.id;
+			if (listTodoItemID) {
+				const [ listItemID, todoItemID ] = listTodoItemID.split('--');
+				const todoID = parseInt(todoItemID[todoItemID.length - 1]);
+				const listID = parseInt(listItemID[listItemID.length - 1]);
+				// 2. Get edited input from container__edit
+				const editInput = uiCtrl.getEditInput();
+				console.log(editInput);
+				// 3. Edit item from data-structure
+				listCtrl.editTodoItem(listID, todoID, editInput);
+				// 4. Update item from UI
+				const updatedList = listCtrl.getList(listID);
+				uiCtrl.setupTodos(updatedList);
+				// 5. Clear input fields and hide container__edit
+			}
 		}
 	};
 	const ctrlToggleDone = (event) => {

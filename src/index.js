@@ -15,6 +15,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		document.querySelector(DOM.todo).addEventListener('click', ctrlDeleteTodoItem);
 		document.querySelector(DOM.todo).addEventListener('click', ctrlToggleHide);
 		document.querySelector(DOM.todo).addEventListener('click', ctrlToggleDone);
+		document.querySelector(DOM.todo).addEventListener('click', ctrlEditTodoItem);
 	};
 	// Add item to list
 	const ctrlAddListItem = () => {
@@ -94,6 +95,27 @@ const controller = ((listCtrl, uiCtrl) => {
 			listCtrl.deleteTodoItem(listID, todoID);
 			// 2. Delete item from UI
 			uiCtrl.deleteItem(todoItemID);
+		}
+	};
+	const ctrlEditTodoItem = (event) => {
+		// Find todo id and list id
+		if (event.target.parentNode.parentNode.parentNode.parentNode) {
+			const editBtn = event.target.parentNode;
+			const todoItemID = event.target.parentNode.parentNode.parentNode.id;
+			const listItemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
+			if (listItemID && todoItemID && editBtn.className === 'todo__item__edit__btn') {
+				console.log('trying to EDIT ', todoItemID, 'from ', listItemID);
+				const todoID = parseInt(todoItemID[todoItemID.length - 1]);
+				const listID = parseInt(listItemID[listItemID.length - 1]);
+				// 1. Show container__edit
+				const containerEdit = document.querySelector('.container__edit');
+				console.log(containerEdit);
+				uiCtrl.toggleHide(containerEdit);
+				// 1. Edit item from data-structure
+				// listCtrl.deleteTodoItem(listID, todoID);
+				// 2. Edit item from UI
+				// uiCtrl.deleteItem(todoItemID);
+			}
 		}
 	};
 	const ctrlToggleDone = (event) => {

@@ -164,10 +164,19 @@ const controller = ((listCtrl, uiCtrl) => {
 			uiCtrl.toggleHide(extra);
 		}
 	};
+	const defaultList = () => {
+		// 1. Get default List
+		const defaultListItem = listCtrl.getDefaultList();
+		// 2. Add new item to the lists ui
+		uiCtrl.addListItem(defaultListItem);
+		// 3. Setup default List
+		uiCtrl.setupTodos(defaultListItem);
+	};
 
 	const init = () => {
 		console.log('Application has started');
 		setupEventListeners();
+		defaultList();
 	};
 
 	return { init };

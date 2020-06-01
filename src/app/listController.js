@@ -122,8 +122,35 @@ const listController = (() => {
 		// 3. return todo
 		return targetList.todos[index];
 	};
+	const getDefaultList = () => {
+		const date = new Date();
+		const year = date.getFullYear();
+		const month = date.getMonth() + 1;
+		const day = date.getDate();
+		const defaultTodo = new Todo(
+			0,
+			'Click Here to check details',
+			`${year}-${month > 9 ? month : '0' + month}-${day > 9 ? day : '0' + day}`,
+			'high',
+			'Edit your todos by clicking on the pencil icon.'
+		);
+		const defaultList = new List(0, 'Get Started');
+		defaultList.todos.push(defaultTodo);
+		data.allLists.push(defaultList);
+		return defaultList;
+	};
 
-	return { addListItem, deleteListItem, getList, getTodo, addTodoItem, deleteTodoItem, editTodoItem, toggleDone };
+	return {
+		addListItem,
+		deleteListItem,
+		getList,
+		getTodo,
+		addTodoItem,
+		deleteTodoItem,
+		editTodoItem,
+		toggleDone,
+		getDefaultList
+	};
 })();
 
 export default listController;

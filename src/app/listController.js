@@ -21,6 +21,10 @@ const listController = (() => {
 	const data = {
 		allLists: []
 	};
+	const populateStorage = () => {
+		console.log('Local Storage: ', data.allLists);
+		localStorage.setItem('allLists', JSON.stringify(data.allLists));
+	};
 	// ===== PUBLIC =====
 	const addListItem = (title) => {
 		// 1. Create ID
@@ -33,7 +37,7 @@ const listController = (() => {
 
 		// 3. Add newlistItem to data structure
 		data.allLists.push(newListItem);
-
+		populateStorage();
 		// 4. Return new item
 		return newListItem;
 	};
@@ -52,6 +56,7 @@ const listController = (() => {
 		// 5. Push Todo into List
 		targetList.todos.push(newTodoItem);
 		console.log('List where todo was added: ', targetList);
+		populateStorage();
 		// 6 Return new Todo item
 		return newTodoItem;
 	};
@@ -65,6 +70,7 @@ const listController = (() => {
 		if (index !== -1) {
 			data.allLists.splice(index, 1);
 		}
+		populateStorage();
 		let diffIndex = index;
 		if (data.allLists.length === 0) {
 			// if no items on list
@@ -89,6 +95,7 @@ const listController = (() => {
 			// remove todo from data structure
 			targetList.todos.splice(index, 1);
 		}
+		populateStorage();
 		console.log('List after deleting todo: ', targetList);
 	};
 	const toggleDone = (listID, todoID, isDone) => {
@@ -102,6 +109,7 @@ const listController = (() => {
 		const index = ids.indexOf(todoID);
 		// 3. toggle .done in todo
 		targetList.todos[index].done = isDone;
+		populateStorage();
 		// 4. return updated todo
 		console.log('List after toggling done: ', targetList);
 	};
@@ -111,6 +119,7 @@ const listController = (() => {
 		todoToEdit.date = obj.date;
 		todoToEdit.priority = obj.prio;
 		todoToEdit.description = obj.desc;
+		populateStorage();
 	};
 
 	const getList = (id) => {
@@ -149,6 +158,13 @@ const listController = (() => {
 		data.allLists.push(defaultList);
 		return defaultList;
 	};
+	const getStorage = () => {
+		if (!localStorage.getItem('allLists')) {
+			populateStorage();
+		}
+		data.allLists = JSON.parse(localStorage.getItem('allLists'));
+		return data.allLists;
+	};
 
 	return {
 		addListItem,
@@ -159,7 +175,8 @@ const listController = (() => {
 		deleteTodoItem,
 		editTodoItem,
 		toggleDone,
-		getDefaultList
+		getDefaultList,
+		getStorage
 	};
 })();
 

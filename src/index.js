@@ -183,7 +183,14 @@ const controller = ((listCtrl, uiCtrl) => {
 	const init = () => {
 		console.log('Application has started');
 		setupEventListeners();
-		defaultList();
+		const allLists = listCtrl.getStorage();
+		if (allLists.length === 0) {
+			defaultList();
+		} else {
+			uiCtrl.setupLists(allLists);
+			const firstList = allLists[0];
+			uiCtrl.setupTodos(firstList);
+		}
 	};
 
 	return { init };

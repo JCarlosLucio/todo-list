@@ -144,7 +144,11 @@ const uiController = (() => {
 		desc.value = '';
 		title.focus();
 	};
-
+	const setupLists = (allLists) => {
+		for (const list of allLists) {
+			addListItem(list);
+		}
+	};
 	const setupTodos = (obj) => {
 		// 1. Set title for '.container__todo__title' with title from targetList.title
 		const containerTodoTitle = document.querySelector(DOMStrings.containerTodoTitle);
@@ -201,7 +205,8 @@ const uiController = (() => {
 		addTodoItem,
 		clearTodoFields,
 		getEditInput,
-		toggleHide
+		toggleHide,
+		setupLists
 	};
 })();
 export default uiController;

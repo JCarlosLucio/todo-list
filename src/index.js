@@ -42,11 +42,18 @@ const controller = ((listCtrl, uiCtrl) => {
 		const listItemID = event.target.parentNode.parentNode.id;
 		if (listItemID) {
 			const ID = parseInt(listItemID[listItemID.length - 1]);
-			console.log(ID);
+			console.log('listItemID to be deleted: ', ID);
 			// 1. Delete item from data-structure
-			listCtrl.deleteListItem(ID);
+			// listCtrl.deleteListItem(ID);
+			const diffList = listCtrl.deleteListItem(ID);
 			// 2. Delete item from UI
 			uiCtrl.deleteItem(listItemID);
+			// 3. pick another list to show if there are no lists, create default list:
+			if (diffList !== -1) {
+				uiCtrl.setupTodos(diffList);
+			} else {
+				defaultList();
+			}
 		}
 	};
 	const ctrlSetupTodos = (event) => {

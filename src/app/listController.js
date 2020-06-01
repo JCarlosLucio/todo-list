@@ -65,7 +65,17 @@ const listController = (() => {
 		if (index !== -1) {
 			data.allLists.splice(index, 1);
 		}
-		console.log(data.allLists);
+		let diffIndex = index;
+		if (data.allLists.length === 0) {
+			// if no items on list
+			return -1;
+		} else {
+			if (diffIndex === data.allLists.length) {
+				//  if last item
+				diffIndex--;
+			}
+			return data.allLists[diffIndex];
+		}
 	};
 	const deleteTodoItem = (listID, todoID) => {
 		// get list from where the todo is going to be deleted

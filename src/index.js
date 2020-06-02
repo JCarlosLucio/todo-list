@@ -26,13 +26,10 @@ const controller = ((listCtrl, uiCtrl) => {
 			// 2. Add new item to data-structure
 			const newListItem = listCtrl.addListItem(listInput);
 			console.log(newListItem);
-
 			// 3. Add new item to the lists ui
 			uiCtrl.addListItem(newListItem);
-
 			// 4. Clear list field
 			uiCtrl.clearListField();
-
 			// 5. Setup list after adding it
 			uiCtrl.setupTodos(newListItem);
 		}
@@ -41,10 +38,9 @@ const controller = ((listCtrl, uiCtrl) => {
 	const ctrlDeleteListItem = (event) => {
 		const listItemID = event.target.parentNode.parentNode.id;
 		if (listItemID) {
-			const ID = parseInt(listItemID[listItemID.length - 1]);
+			const [ ID ] = getIDs([ listItemID ]);
 			console.log('listItemID to be deleted: ', ID);
 			// 1. Delete item from data-structure
-			// listCtrl.deleteListItem(ID);
 			const diffList = listCtrl.deleteListItem(ID);
 			// 2. Delete item from UI
 			uiCtrl.deleteItem(listItemID);
@@ -59,20 +55,16 @@ const controller = ((listCtrl, uiCtrl) => {
 	const ctrlSetupTodos = (event) => {
 		const listItemID = event.target.parentNode.id;
 		if (listItemID) {
-			const ID = parseInt(listItemID[listItemID.length - 1]);
+			const [ ID ] = getIDs([ listItemID ]);
 			console.log('Setting up', event.target.parentNode.id);
 			//  LIST CONTROLLER TASKS
-			// 1. Set this.selected  to false to all lists  ===  setSelected(id) => {}
-			// 2. Set this.selected to true to event.target using ID
-
-			// 3. Get targetList with id --- getList(ID) -> return data.allLists[index]
+			// 1. Get targetList with id --- getList(ID) -> return data.allLists[index]
 			const targetList = listCtrl.getList(ID);
 			console.log('target List', targetList);
-
 			// UI CONTROLLER TASKS
-			// 3. Set title for '.container__todo__title' with title from targetList.title
-			// 5. Add'selected' class to event.target and remove from other list items
-			// 6. Add todo-list-ID to '.todo'
+			// 2. Set title for '.container__todo__title' with title from targetList.title
+			// 3. Add'selected' class to event.target and remove from other list items
+			// 4. Add todo-list-ID to '.todo'
 			uiCtrl.setupTodos(targetList);
 		}
 	};
@@ -97,8 +89,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		const listItemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
 		if (listItemID && todoItemID && deleteBtn.className === DOM.todoItemDeleteBtnClass) {
 			console.log('trying to delete ', todoItemID, 'from ', listItemID);
-			const todoID = parseInt(todoItemID[todoItemID.length - 1]);
-			const listID = parseInt(listItemID[listItemID.length - 1]);
+			const [ listID, todoID ] = getIDs([ listItemID, todoItemID ]);
 			// 1. Delete item from data-structure
 			listCtrl.deleteTodoItem(listID, todoID);
 			// 2. Delete item from UI
@@ -113,8 +104,7 @@ const controller = ((listCtrl, uiCtrl) => {
 			const listItemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
 			if (listItemID && todoItemID) {
 				console.log('trying to EDIT ', todoItemID, 'from ', listItemID);
-				const todoID = parseInt(todoItemID[todoItemID.length - 1]);
-				const listID = parseInt(listItemID[listItemID.length - 1]);
+				const [ listID, todoID ] = getIDs([ listItemID, todoItemID ]);
 				// 1. Get todo from data-structure
 				const oldTodo = listCtrl.getTodo(listID, todoID);
 				console.log('todo to Edit: ', oldTodo);
@@ -133,8 +123,7 @@ const controller = ((listCtrl, uiCtrl) => {
 			const listTodoItemID = event.target.parentNode.id;
 			if (listTodoItemID) {
 				const [ listItemID, todoItemID ] = listTodoItemID.split('--');
-				const todoID = parseInt(todoItemID[todoItemID.length - 1]);
-				const listID = parseInt(listItemID[listItemID.length - 1]);
+				const [ listID, todoID ] = getIDs([ listItemID, todoItemID ]);
 				// 2. Get edited input from container__edit
 				const editInput = uiCtrl.getEditInput();
 				console.log(editInput);
@@ -154,8 +143,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		const todoItemID = event.target.parentNode.parentNode.id;
 		const listItemID = event.target.parentNode.parentNode.parentNode.id;
 		if (isChecked === true || isChecked === false) {
-			const todoID = parseInt(todoItemID[todoItemID.length - 1]);
-			const listID = parseInt(listItemID[listItemID.length - 1]);
+			const [ listID, todoID ] = getIDs([ listItemID, todoItemID ]);
 			console.log('DONE: ', isChecked, todoItemID, listItemID);
 			// 1. Update data-structure
 			listCtrl.toggleDone(listID, todoID, isChecked);
@@ -178,6 +166,13 @@ const controller = ((listCtrl, uiCtrl) => {
 		uiCtrl.addListItem(defaultListItem);
 		// 3. Setup default List
 		uiCtrl.setupTodos(defaultListItem);
+	};
+	const getIDs = (arr) => {
+		const result = [];
+		for (const item of arr) {
+			result.push(parseInt(item[item.length - 1]));
+		}
+		return result;
 	};
 
 	const init = () => {

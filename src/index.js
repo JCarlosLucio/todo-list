@@ -120,7 +120,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		const editTodoBtn = event.target;
 		if (editTodoBtn.className === DOM.editTodoBtnClass) {
 			// 1. Get list id and todo id from 'edit__todo'
-			const listTodoItemID = event.target.parentNode.id;
+			const listTodoItemID = event.target.parentNode.parentNode.id;
 			if (listTodoItemID) {
 				const [ listItemID, todoItemID ] = listTodoItemID.split('--');
 				const [ listID, todoID ] = getIDs([ listItemID, todoItemID ]);

@@ -183,7 +183,7 @@ const uiController = (() => {
 		const prio = document.querySelector(DOMStrings.editTodoPrio);
 		const desc = document.querySelector(DOMStrings.editTodoDesc);
 		editTodo.setAttribute('id', `list-${listID}--todo-${todoID}`);
-		containerEditTitle.innerText = `Edit ${obj.title}`;
+		containerEditTitle.innerText = `Edit "${obj.title}"`;
 		title.value = obj.title;
 		date.value = obj.date;
 		prio.value = obj.priority;

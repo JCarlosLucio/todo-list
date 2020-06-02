@@ -154,6 +154,7 @@ textarea {
 	background: $black-filter-soft;
 	&__title {
 		overflow: hidden;
+		text-align: center;
 		width: 14rem;
 		@include desktop() {
 			width: 27rem;

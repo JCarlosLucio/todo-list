@@ -25,6 +25,14 @@ const listController = (() => {
 		console.log('Local Storage: ', data.allLists);
 		localStorage.setItem('allLists', JSON.stringify(data.allLists));
 	};
+	const getIndex = (arr, id) => {
+		const ids = arr.map((item) => {
+			return item.id;
+		});
+		// find index of id in array of ids
+		const index = ids.indexOf(id);
+		return index;
+	};
 	// ===== PUBLIC =====
 	const addListItem = (title) => {
 		// 1. Create ID
@@ -61,11 +69,8 @@ const listController = (() => {
 		return newTodoItem;
 	};
 	const deleteListItem = (id) => {
-		const ids = data.allLists.map((list) => {
-			return list.id;
-		});
-		// find index of id in array of ids
-		const index = ids.indexOf(id);
+		// find index of id in array
+		const index = getIndex(data.allLists, id);
 		// Remove list from data-structure
 		if (index !== -1) {
 			data.allLists.splice(index, 1);
@@ -87,10 +92,7 @@ const listController = (() => {
 		// get list from where the todo is going to be deleted
 		const targetList = getList(listID);
 		// find index of todo to be deleted
-		const ids = targetList.todos.map((todo) => {
-			return todo.id;
-		});
-		const index = ids.indexOf(todoID);
+		const index = getIndex(targetList.todos, todoID);
 		if (index !== -1) {
 			// remove todo from data structure
 			targetList.todos.splice(index, 1);
@@ -101,12 +103,8 @@ const listController = (() => {
 	const toggleDone = (listID, todoID, isDone) => {
 		// 1. get list
 		const targetList = getList(listID);
-
 		// 2. find todo index
-		const ids = targetList.todos.map((todo) => {
-			return todo.id;
-		});
-		const index = ids.indexOf(todoID);
+		const index = getIndex(targetList.todos, todoID);
 		// 3. toggle .done in todo
 		targetList.todos[index].done = isDone;
 		populateStorage();
@@ -123,21 +121,15 @@ const listController = (() => {
 	};
 
 	const getList = (id) => {
-		const ids = data.allLists.map((list) => {
-			return list.id;
-		});
-		const index = ids.indexOf(id);
+		// find list index
+		const index = getIndex(data.allLists, id);
 		return data.allLists[index];
 	};
 	const getTodo = (listID, todoID) => {
 		// 1. get list
 		const targetList = getList(listID);
-
 		// 2. find todo index
-		const ids = targetList.todos.map((todo) => {
-			return todo.id;
-		});
-		const index = ids.indexOf(todoID);
+		const index = getIndex(targetList.todos, todoID);
 		// 3. return todo
 		return targetList.todos[index];
 	};

@@ -16,7 +16,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		document.querySelector(DOM.todo).addEventListener('click', ctrlToggleHide);
 		document.querySelector(DOM.todo).addEventListener('click', ctrlToggleDone);
 		document.querySelector(DOM.todo).addEventListener('click', ctrlSetupEdit);
-		document.querySelector(DOM.editTodo).addEventListener('click', ctrlEditTodoItem);
+		document.querySelector(DOM.editTodoBtn).addEventListener('click', ctrlEditTodoItem);
 		document.querySelector(DOM.editCancelBtn).addEventListener('click', ctrlEditCancel);
 	};
 	// Add item to list
@@ -118,25 +118,22 @@ const controller = ((listCtrl, uiCtrl) => {
 		}
 	};
 	const ctrlEditTodoItem = (event) => {
-		const editTodoBtn = event.target;
-		if (editTodoBtn.className === DOM.editTodoBtnClass) {
-			// 1. Get list id and todo id from 'edit__todo'
-			const listTodoItemID = event.target.parentNode.parentNode.id;
-			if (listTodoItemID) {
-				const [ listItemID, todoItemID ] = listTodoItemID.split('--');
-				const [ listID, todoID ] = getIDs([ listItemID, todoItemID ]);
-				// 2. Get edited input from container__edit
-				const editInput = uiCtrl.getEditInput();
-				console.log(editInput);
-				// 3. Edit item from data-structure
-				listCtrl.editTodoItem(listID, todoID, editInput);
-				// 4. Update item from UI
-				const updatedList = listCtrl.getList(listID);
-				uiCtrl.setupTodos(updatedList);
-				// 5. Hide container__edit
-				const containerEdit = document.querySelector(DOM.containerEdit);
-				uiCtrl.toggleHide(containerEdit);
-			}
+		// 1. Get list id and todo id from 'edit__todo'
+		const listTodoItemID = event.target.parentNode.parentNode.id;
+		if (listTodoItemID) {
+			const [ listItemID, todoItemID ] = listTodoItemID.split('--');
+			const [ listID, todoID ] = getIDs([ listItemID, todoItemID ]);
+			// 2. Get edited input from container__edit
+			const editInput = uiCtrl.getEditInput();
+			console.log(editInput);
+			// 3. Edit item from data-structure
+			listCtrl.editTodoItem(listID, todoID, editInput);
+			// 4. Update item from UI
+			const updatedList = listCtrl.getList(listID);
+			uiCtrl.setupTodos(updatedList);
+			// 5. Hide container__edit
+			const containerEdit = document.querySelector(DOM.containerEdit);
+			uiCtrl.toggleHide(containerEdit);
 		}
 	};
 	const ctrlEditCancel = () => {

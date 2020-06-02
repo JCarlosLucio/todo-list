@@ -17,6 +17,7 @@ const uiController = (() => {
 		editTodo: '.edit__todo',
 		editTodoTitle: '.edit__todo__title',
 		editTodoBtn: '.edit__todo__btn',
+		editCancelBtn: '.edit__cancel__btn',
 		editTodoDate: '.edit__todo__date',
 		editTodoPrio: '.edit__todo__prio',
 		editTodoDesc: '.edit__todo__desc',

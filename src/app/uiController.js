@@ -112,7 +112,7 @@ const uiController = (() => {
 		editBtn.classList.add(DOMStrings.todoItemEditBtnClass);
 		editIcon.classList.add('fas', 'fa-edit');
 		date.classList.add(DOMStrings.todoItemDateClass);
-		date.innerText = obj.date;
+		date.innerText = `Due date: ${obj.date}`;
 		desc.classList.add(DOMStrings.todoItemDescClass);
 		desc.innerText = obj.description;
 		editBtn.append(editIcon);

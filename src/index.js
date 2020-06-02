@@ -17,6 +17,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		document.querySelector(DOM.todo).addEventListener('click', ctrlToggleDone);
 		document.querySelector(DOM.todo).addEventListener('click', ctrlSetupEdit);
 		document.querySelector(DOM.editTodo).addEventListener('click', ctrlEditTodoItem);
+		document.querySelector(DOM.editCancelBtn).addEventListener('click', ctrlEditCancel);
 	};
 	// Add item to list
 	const ctrlAddListItem = () => {
@@ -137,6 +138,10 @@ const controller = ((listCtrl, uiCtrl) => {
 				uiCtrl.toggleHide(containerEdit);
 			}
 		}
+	};
+	const ctrlEditCancel = () => {
+		const containerEdit = document.querySelector(DOM.containerEdit);
+		uiCtrl.toggleHide(containerEdit);
 	};
 	const ctrlToggleDone = (event) => {
 		const isChecked = event.target.checked;

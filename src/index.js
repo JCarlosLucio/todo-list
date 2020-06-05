@@ -26,7 +26,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		if (listInput) {
 			// 2. Add new item to data-structure
 			const newListItem = listCtrl.addListItem(listInput);
-			console.log(newListItem);
+			// console.log(newListItem);
 			// 3. Add new item to the lists ui
 			uiCtrl.addListItem(newListItem);
 			// 4. Clear list field
@@ -40,7 +40,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		const listItemID = event.target.parentNode.parentNode.id;
 		if (listItemID) {
 			const [ ID ] = getIDs([ listItemID ]);
-			console.log('listItemID to be deleted: ', ID);
+			// console.log('listItemID to be deleted: ', ID);
 			// 1. Delete item from data-structure
 			const diffList = listCtrl.deleteListItem(ID);
 			// 2. Delete item from UI
@@ -57,11 +57,11 @@ const controller = ((listCtrl, uiCtrl) => {
 		const listItemID = event.target.parentNode.id;
 		if (listItemID) {
 			const [ ID ] = getIDs([ listItemID ]);
-			console.log('Setting up', event.target.parentNode.id);
+			// console.log('Setting up', event.target.parentNode.id);
 			//  LIST CONTROLLER TASKS
 			// 1. Get targetList with id --- getList(ID) -> return data.allLists[index]
 			const targetList = listCtrl.getList(ID);
-			console.log('target List', targetList);
+			// console.log('target List', targetList);
 			// UI CONTROLLER TASKS
 			// 2. Set title for '.container__todo__title' with title from targetList.title
 			// 3. Add'selected' class to event.target and remove from other list items
@@ -74,7 +74,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		// 1. Get input values
 		const todoInput = uiCtrl.getTodoInput();
 		if (todoInput.listID && todoInput.title) {
-			console.log('todo input: ', todoInput);
+			// console.log('todo input: ', todoInput);
 			// 2. Add todo item to data-strucuture
 			const newTodoItem = listCtrl.addTodoItem(todoInput);
 			// 3. Add todo item to the todos ui
@@ -89,7 +89,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		const todoItemID = event.target.parentNode.parentNode.parentNode.id;
 		const listItemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
 		if (listItemID && todoItemID && deleteBtn.className === DOM.todoItemDeleteBtnClass) {
-			console.log('trying to delete ', todoItemID, 'from ', listItemID);
+			// console.log('trying to delete ', todoItemID, 'from ', listItemID);
 			const [ listID, todoID ] = getIDs([ listItemID, todoItemID ]);
 			// 1. Delete item from data-structure
 			listCtrl.deleteTodoItem(listID, todoID);
@@ -104,11 +104,11 @@ const controller = ((listCtrl, uiCtrl) => {
 			const todoItemID = event.target.parentNode.parentNode.parentNode.id;
 			const listItemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
 			if (listItemID && todoItemID) {
-				console.log('trying to EDIT ', todoItemID, 'from ', listItemID);
+				// console.log('trying to EDIT ', todoItemID, 'from ', listItemID);
 				const [ listID, todoID ] = getIDs([ listItemID, todoItemID ]);
 				// 1. Get todo from data-structure
 				const oldTodo = listCtrl.getTodo(listID, todoID);
-				console.log('todo to Edit: ', oldTodo);
+				// console.log('todo to Edit: ', oldTodo);
 				// 2. Set todo values from in container__edit
 				uiCtrl.setEditInputs(listID, todoID, oldTodo);
 				// 3. Show container__edit
@@ -125,7 +125,7 @@ const controller = ((listCtrl, uiCtrl) => {
 			const [ listID, todoID ] = getIDs([ listItemID, todoItemID ]);
 			// 2. Get edited input from container__edit
 			const editInput = uiCtrl.getEditInput();
-			console.log(editInput);
+			// console.log(editInput);
 			// 3. Edit item from data-structure
 			listCtrl.editTodoItem(listID, todoID, editInput);
 			// 4. Update item from UI
@@ -146,7 +146,7 @@ const controller = ((listCtrl, uiCtrl) => {
 		const listItemID = event.target.parentNode.parentNode.parentNode.id;
 		if (isChecked === true || isChecked === false) {
 			const [ listID, todoID ] = getIDs([ listItemID, todoItemID ]);
-			console.log('DONE: ', isChecked, todoItemID, listItemID);
+			// console.log('DONE: ', isChecked, todoItemID, listItemID);
 			// 1. Update data-structure
 			listCtrl.toggleDone(listID, todoID, isChecked);
 			// 2. Update item in UI

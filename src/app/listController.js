@@ -22,7 +22,7 @@ const listController = (() => {
 		allLists: []
 	};
 	const populateStorage = () => {
-		console.log('Local Storage: ', data.allLists);
+		// console.log('Local Storage: ', data.allLists);
 		localStorage.setItem('allLists', JSON.stringify(data.allLists));
 	};
 	const getIndex = (arr, id) => {
@@ -63,7 +63,7 @@ const listController = (() => {
 		const newTodoItem = new Todo(todoID, obj.title, obj.date, obj.prio, obj.desc);
 		// 5. Push Todo into List
 		targetList.todos.push(newTodoItem);
-		console.log('List where todo was added: ', targetList);
+		// console.log('List where todo was added: ', targetList);
 		populateStorage();
 		// 6 Return new Todo item
 		return newTodoItem;
@@ -98,7 +98,7 @@ const listController = (() => {
 			targetList.todos.splice(index, 1);
 		}
 		populateStorage();
-		console.log('List after deleting todo: ', targetList);
+		// console.log('List after deleting todo: ', targetList);
 	};
 	const toggleDone = (listID, todoID, isDone) => {
 		// 1. get list
@@ -109,7 +109,7 @@ const listController = (() => {
 		targetList.todos[index].done = isDone;
 		populateStorage();
 		// 4. return updated todo
-		console.log('List after toggling done: ', targetList);
+		// console.log('List after toggling done: ', targetList);
 	};
 	const editTodoItem = (listID, todoID, obj) => {
 		const todoToEdit = getTodo(listID, todoID);

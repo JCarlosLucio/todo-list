@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 const uiController = (() => {
 	//  CODE FOR THE UI
 	const DOMStrings = {
@@ -113,7 +115,9 @@ const uiController = (() => {
 		editBtn.classList.add(DOMStrings.todoItemEditBtnClass);
 		editIcon.classList.add('fas', 'fa-edit');
 		date.classList.add(DOMStrings.todoItemDateClass);
-		date.innerText = `Due date: ${obj.date}`;
+		// use moment to format date on ui
+		const momentDate = moment(obj.date).fromNow();
+		date.innerText = momentDate !== 'Invalid date' ? `Due ${momentDate}` : '';
 		desc.classList.add(DOMStrings.todoItemDescClass);
 		desc.innerText = obj.description;
 		editBtn.append(editIcon);

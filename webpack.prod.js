@@ -8,11 +8,11 @@ const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 module.exports = merge(common, {
   mode: 'production',
   output: {
-    filename: 'main.[contentHash].js',
+    filename: 'main.[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: '[name].[contentHash].css' }),
+    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
     new CleanWebpackPlugin(),
     new MomentLocalesPlugin(),
   ],

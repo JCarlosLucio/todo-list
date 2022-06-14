@@ -1,31 +1,59 @@
 :root {
-	font-size: 16px;
-	font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  font-family: 'Quicksand', sans-serif;
 }
 $bg-gradient: linear-gradient(
-	to right top,
-	#d16ba5,
-	#c777b9,
-	#ba83ca,
-	#aa8fd8,
-	#9a9ae1,
-	#8aa7ec,
-	#79b3f4,
-	#69bff8,
-	#52cffe,
-	#41dfff,
-	#46eefa,
-	#5ffbf1
+  to right top,
+  #d16ba5,
+  #c777b9,
+  #ba83ca,
+  #aa8fd8,
+  #9a9ae1,
+  #8aa7ec,
+  #79b3f4,
+  #69bff8,
+  #52cffe,
+  #41dfff,
+  #46eefa,
+  #5ffbf1
 );
 $bg-darker: #000000;
 $bg-dark: #424242;
 $bg-light: #ffffff;
 $bg-light: #ffffff;
-$bg-selected: linear-gradient(to right, #1f0537, #401f5f, #643b8a, #8958b7, #b177e7);
-$bg-hover: linear-gradient(to right, #b177e7, #bf9bf1, #d1bdf9, #e6defd, #ffffff);
+$bg-selected: linear-gradient(
+  to right,
+  #1f0537,
+  #401f5f,
+  #643b8a,
+  #8958b7,
+  #b177e7
+);
+$bg-hover: linear-gradient(
+  to right,
+  #b177e7,
+  #bf9bf1,
+  #d1bdf9,
+  #e6defd,
+  #ffffff
+);
 $bg-red: linear-gradient(to right, #ff5e88, #ff79a4, #ff93bd, #ffabd3, #ffc2e5);
-$bg-yellow: linear-gradient(to right, #ffba1e, #f9ce58, #f5df88, #f6eeb6, #fbfbe4);
-$bg-blue: linear-gradient(to right, #1c93ff, #08acff, #3ec2ff, #6dd6ff, #9be9ff);
+$bg-yellow: linear-gradient(
+  to right,
+  #ffba1e,
+  #f9ce58,
+  #f5df88,
+  #f6eeb6,
+  #fbfbe4
+);
+$bg-blue: linear-gradient(
+  to right,
+  #1c93ff,
+  #08acff,
+  #3ec2ff,
+  #6dd6ff,
+  #9be9ff
+);
 $text: #ffffff;
 $text-dark: #000000;
 $shadow-color: #00000013;
@@ -33,287 +61,294 @@ $shadow: $shadow-color 0px 0.3em 1.175em, $shadow-color 0px 0.175em 0.5em;
 $white-filter-soft: #ffffff27;
 $white-filter-hard: #ffffffbd;
 $black-filter-soft: #000000a1;
-$bg-done: linear-gradient(to right, #a3a3a3, #b9b9b9, #d0d0d0, #e7e7e7, #ffffff);
+$bg-done: linear-gradient(
+  to right,
+  #a3a3a3,
+  #b9b9b9,
+  #d0d0d0,
+  #e7e7e7,
+  #ffffff
+);
 
 // $show-speed: 3s;
 $desktop: 60rem;
 
 @mixin desktop {
-	@media (min-width: #{$desktop}) {
-		@content;
-	}
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
 }
 @mixin noMarginPadding {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 @mixin oneHundred() {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 @mixin flexCenter($direction) {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: $direction;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
 }
 @mixin card() {
-	@include flexCenter(column);
-	background-color: $bg-light;
-	border-radius: 1.5rem;
-	padding: 1rem 0;
-	margin: 1rem 0;
-	width: 18rem;
+  @include flexCenter(column);
+  background-color: $bg-light;
+  border-radius: 1.5rem;
+  padding: 1rem 0;
+  margin: 1rem 0;
+  width: 18rem;
 }
 
 body,
 html {
-	min-height: 100%;
+  min-height: 100%;
 }
 
 body {
-	@include noMarginPadding();
-	background-image: $bg-gradient;
-	background-size: cover;
-	background-repeat: no-repeat;
+  @include noMarginPadding();
+  background-image: $bg-gradient;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 a {
-	color: $text;
-	font-size: 1.3rem;
-	font-weight: 700;
-	text-decoration: none;
-	padding-bottom: 1rem;
-	&:hover {
-		background: $bg-selected;
-		background-clip: text;
-		-webkit-background-clip: text;
-		color: transparent;
-		-webkit-text-fill-color: transparent;
-	}
+  color: $text;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding-bottom: 1rem;
+  &:hover {
+    background: $bg-selected;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
 }
 button {
-	background-color: $bg-darker;
-	color: $text;
-	border: none;
-	border-radius: 0.2rem;
-	padding: 0.3rem 0.4rem;
-	cursor: pointer;
-	&:hover {
-		background-color: $bg-dark;
-	}
+  background-color: $bg-darker;
+  color: $text;
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.3rem 0.4rem;
+  cursor: pointer;
+  &:hover {
+    background-color: $bg-dark;
+  }
 }
 input,
 textarea,
 select {
-	padding: 0.5rem;
-	margin: 1rem 0.5rem;
-	border: none;
-	border-radius: 0.5rem;
-	box-shadow: $shadow;
+  padding: 0.5rem;
+  margin: 1rem 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: $shadow;
 }
 textarea {
-	@include desktop() {
-		width: 27rem;
-	}
+  @include desktop() {
+    width: 27rem;
+  }
 }
 .content {
-	@include oneHundred();
-	@include flexCenter(column);
-	justify-content: flex-start;
-	&__title {
-		color: $text;
-		@include desktop() {
-			font-size: 2.5rem;
-		}
-	}
+  @include oneHundred();
+  @include flexCenter(column);
+  justify-content: flex-start;
+  &__title {
+    color: $text;
+    @include desktop() {
+      font-size: 2.5rem;
+    }
+  }
 }
 .container {
-	@include flexCenter(column);
-	justify-content: flex-start;
-	@include desktop() {
-		@include flexCenter(row);
-		align-items: flex-start;
-		justify-content: space-around;
-		width: 60rem;
-	}
-	&__list {
-		@include card();
-		@include desktop() {
-			width: 18rem;
-		}
-	}
-	&__todo {
-		@include card();
-		@include desktop() {
-			width: 35rem;
-		}
-		&__title {
-			overflow: hidden;
-			text-align: center;
-			width: 14rem;
-			@include desktop() {
-				width: 27rem;
-			}
-		}
-	}
+  @include flexCenter(column);
+  justify-content: flex-start;
+  @include desktop() {
+    @include flexCenter(row);
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 60rem;
+  }
+  &__list {
+    @include card();
+    @include desktop() {
+      width: 18rem;
+    }
+  }
+  &__todo {
+    @include card();
+    @include desktop() {
+      width: 35rem;
+    }
+    &__title {
+      overflow: hidden;
+      text-align: center;
+      width: 14rem;
+      @include desktop() {
+        width: 27rem;
+      }
+    }
+  }
 }
 // edit todos
 .container__edit {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	min-height: 100%;
-	@include flexCenter(column);
-	background: $black-filter-soft;
-	&__title {
-		overflow: hidden;
-		text-align: center;
-		width: 14rem;
-		@include desktop() {
-			width: 27rem;
-		}
-	}
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  @include flexCenter(column);
+  background: $black-filter-soft;
+  &__title {
+    overflow: hidden;
+    text-align: center;
+    width: 14rem;
+    @include desktop() {
+      width: 27rem;
+    }
+  }
 }
 .edit__todo {
-	@include card();
-	@include desktop() {
-		width: 35rem;
-	}
-	h1 {
-		font-size: 1.5rem;
-		@include desktop() {
-			font-size: 2rem;
-		}
-	}
+  @include card();
+  @include desktop() {
+    width: 35rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+    @include desktop() {
+      font-size: 2rem;
+    }
+  }
 }
 
 .add__todo,
 .edit__todo {
-	@include flexCenter(column);
-	&__inputs {
-		@include flexCenter(column);
-		@include desktop() {
-			@include flexCenter(row);
-		}
-	}
+  @include flexCenter(column);
+  &__inputs {
+    @include flexCenter(column);
+    @include desktop() {
+      @include flexCenter(row);
+    }
+  }
 }
 // todo and list
 .todo,
 .list {
-	margin: 2rem 0;
+  margin: 2rem 0;
 }
 .todo {
-	width: 14rem;
-	@include desktop() {
-		width: 27rem;
-	}
+  width: 14rem;
+  @include desktop() {
+    width: 27rem;
+  }
 }
 .list {
-	width: 14rem;
+  width: 14rem;
 }
 
 // items for todos and lists
 .list__item,
 .todo__item {
-	border-radius: 0.5rem;
-	margin: 0.5rem 0;
-	box-shadow: $shadow;
-	&__title {
-		padding: 0.9rem 0 0.9rem 1rem;
-		width: 100%;
-		overflow: hidden;
-	}
-	&__delete__btn {
-		color: $text;
-		margin-right: 0.5rem;
-		background-color: rgba(255, 75, 75, 0.411);
-		padding: 0;
-		i {
-			padding: 0.3rem 0.4rem;
-		}
-		&:hover {
-			background-color: rgb(255, 0, 0);
-		}
-	}
-	&__edit__btn {
-		color: $text;
-		margin: 0.5rem;
-		background-color: rgba(10, 10, 10, 0.432);
-		padding: 0;
-		align-self: flex-end;
-		i {
-			padding: 0.3rem 0.4rem;
-		}
-		&:hover {
-			background-color: rgb(0, 0, 0);
-		}
-	}
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
+  box-shadow: $shadow;
+  &__title {
+    padding: 0.9rem 0 0.9rem 1rem;
+    width: 100%;
+    overflow: hidden;
+  }
+  &__delete__btn {
+    color: $text;
+    margin-right: 0.5rem;
+    background-color: rgba(255, 75, 75, 0.411);
+    padding: 0;
+    i {
+      padding: 0.3rem 0.4rem;
+    }
+    &:hover {
+      background-color: rgb(255, 0, 0);
+    }
+  }
+  &__edit__btn {
+    color: $text;
+    margin: 0.5rem;
+    background-color: rgba(10, 10, 10, 0.432);
+    padding: 0;
+    align-self: flex-end;
+    i {
+      padding: 0.3rem 0.4rem;
+    }
+    &:hover {
+      background-color: rgb(0, 0, 0);
+    }
+  }
 }
 
 .list__item {
-	@include flexCenter(row);
-	justify-content: flex-start;
-	cursor: pointer;
-	&:hover {
-		background-image: $bg-hover;
-	}
+  @include flexCenter(row);
+  justify-content: flex-start;
+  cursor: pointer;
+  &:hover {
+    background-image: $bg-hover;
+  }
 }
 .todo__item {
-	@include flexCenter(column);
-	align-items: flex-start;
-	&__short {
-		width: 100%;
-		cursor: pointer;
-		@include flexCenter(row);
-		justify-content: flex-start;
-		&:hover {
-			background-color: $white-filter-soft;
-		}
-	}
-	&__extra {
-		@include flexCenter(column);
-		visibility: visible;
-		border-radius: 0 0 0.5rem 0.5rem;
-		width: 100%;
-		background-color: $white-filter-hard;
-	}
-	&__date {
-		width: 8rem;
-		text-align: start;
-		@include desktop() {
-			width: 23rem;
-		}
-	}
-	&__desc {
-		overflow: hidden;
-		width: 12rem;
-		margin: 1rem;
-		@include desktop() {
-			width: 23rem;
-		}
-	}
+  @include flexCenter(column);
+  align-items: flex-start;
+  &__short {
+    width: 100%;
+    cursor: pointer;
+    @include flexCenter(row);
+    justify-content: flex-start;
+    &:hover {
+      background-color: $white-filter-soft;
+    }
+  }
+  &__extra {
+    @include flexCenter(column);
+    visibility: visible;
+    border-radius: 0 0 0.5rem 0.5rem;
+    width: 100%;
+    background-color: $white-filter-hard;
+  }
+  &__date {
+    width: 8rem;
+    text-align: start;
+    @include desktop() {
+      width: 23rem;
+    }
+  }
+  &__desc {
+    overflow: hidden;
+    width: 12rem;
+    margin: 1rem;
+    @include desktop() {
+      width: 23rem;
+    }
+  }
 }
 // classes for toggling
 .high {
-	background-image: $bg-red;
+  background-image: $bg-red;
 }
 .medium {
-	background-image: $bg-yellow;
+  background-image: $bg-yellow;
 }
 .low {
-	background-image: $bg-blue;
+  background-image: $bg-blue;
 }
 .selected {
-	background-image: $bg-selected;
-	color: $text;
-	transform: translateY(0) scale(1.1);
+  background-image: $bg-selected;
+  color: $text;
+  transform: translateY(0) scale(1.1);
 }
 .hide {
-	display: none;
+  display: none;
 }
 .done {
-	text-decoration: line-through;
-	background-image: $bg-done;
-	color: $bg-dark;
+  text-decoration: line-through;
+  background-image: $bg-done;
+  color: $bg-dark;
 }

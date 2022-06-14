@@ -1,4 +1,7 @@
-import moment from 'moment';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+
+dayjs.extend(relativeTime);
 
 const uiController = (() => {
   //  CODE FOR THE UI
@@ -115,9 +118,9 @@ const uiController = (() => {
     editBtn.classList.add(DOMStrings.todoItemEditBtnClass);
     editIcon.classList.add('fas', 'fa-edit');
     date.classList.add(DOMStrings.todoItemDateClass);
-    // use moment to format date on ui
-    const momentDate = moment(obj.date).fromNow();
-    date.innerText = momentDate !== 'Invalid date' ? `Due ${momentDate}` : '';
+    // use dayjs to format date on ui
+    const dateFromNow = dayjs(obj.date).fromNow();
+    date.innerText = dateFromNow !== 'Invalid date' ? `Due ${dateFromNow}` : '';
     desc.classList.add(DOMStrings.todoItemDescClass);
     desc.innerText = obj.description;
     editBtn.append(editIcon);

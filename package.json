@@ -7,7 +7,7 @@
   "scripts": {
     "start": "webpack serve --config webpack.dev.js --open",
     "build": "webpack --config webpack.prod.js",
-    "gh-deploy": "npm run build && git add . && git commit --m 'Upgrade generated dist files' && git subtree push --prefix $1 origin gh-pages"
+    "gh-deploy": "npm run build && git add . && git commit --m 'Upgrade generated dist files' && git push origin master && git subtree push --prefix $1 origin gh-pages"
   },
   "repository": {
     "type": "git",

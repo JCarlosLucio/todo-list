@@ -224,7 +224,8 @@ textarea {
 }
 
 .add__todo,
-.edit__todo {
+.edit__todo,
+.add__list {
   @include flexCenter(column);
   &__inputs {
     @include flexCenter(column);
